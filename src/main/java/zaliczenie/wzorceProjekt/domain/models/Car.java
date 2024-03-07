@@ -8,17 +8,19 @@ public class Car {
     private int production_date;
     private String color;
     private String photo_url;
+    private FuelType fuel_type;
 
     public Car() {
     }
     
-    public Car(int id, String brand, String model, int production_date, String color, String photo_url) {
+    public Car(int id, String brand, String model, int production_date, String color, String photo_ur, FuelType fuel_type) {
         this.id = id;
         this.brand = brand;
         this.model = model;
         this.production_date = production_date;
         this.color = color;
         this.photo_url = photo_url;
+        this.fuel_type = fuel_type;
     }
 
     public int getId() {
@@ -67,6 +69,14 @@ public class Car {
 
     public void setPhoto_url(String photo_url) {
         this.photo_url = photo_url;
+    }
+
+    public FuelType getFuel_type() {
+        return fuel_type;
+    }
+
+    public void setFuel_type(FuelType fuel_type) {
+        this.fuel_type = fuel_type;
     }
     
     
