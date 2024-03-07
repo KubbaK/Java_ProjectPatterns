@@ -1,11 +1,8 @@
-package zaliczenie.wzorceProjekt.application;
+package zaliczenie.wzorceProjekt.Bootstrapper;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import zaliczenie.wzorceProjekt.domain.models.Car;
-import zaliczenie.wzorceProjekt.domain.models.CarAvailabilityManager;
-import zaliczenie.wzorceProjekt.domain.models.CombustionCarFactory;
-import zaliczenie.wzorceProjekt.domain.models.ElectricCarFactory;
+import zaliczenie.wzorceProjekt.domain.models.*;
 
 @SpringBootApplication
 public class WzorceProjektApplication {

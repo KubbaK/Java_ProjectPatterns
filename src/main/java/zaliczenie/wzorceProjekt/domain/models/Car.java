@@ -1,6 +1,8 @@
 package zaliczenie.wzorceProjekt.domain.models;
 
-public class Car {
+import org.hibernate.id.GUIDGenerator;
+
+public abstract class Car {
 
     private int id;
     private String brand;
@@ -68,6 +70,14 @@ public class Car {
     public void setPhoto_url(String photo_url) {
         this.photo_url = photo_url;
     }
-    
-    
+
+    public Car DeepClone(Car car, Car copyCar){
+        copyCar.brand = car.brand;
+        copyCar.color = car.color;
+        copyCar.photo_url = car.photo_url;
+        copyCar.model = car.model;
+        copyCar.production_date = car.production_date;
+        return car;
+    }
+
 }

@@ -3,8 +3,8 @@ package zaliczenie.wzorceProjekt.domain.models;
 
 public class ElectricCarFactory implements CarFactory {
     @Override
-    public Car createCar() {
-        Car electricCar = new Car();
+    public ElectricCar createCar() {
+        ElectricCar electricCar = new ElectricCar();
         return electricCar;
     }
 }
