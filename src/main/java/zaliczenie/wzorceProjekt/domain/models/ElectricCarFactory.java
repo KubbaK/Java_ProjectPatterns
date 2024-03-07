@@ -2,9 +2,10 @@
 package zaliczenie.wzorceProjekt.domain.models;
 
 public class ElectricCarFactory implements CarFactory {
-    @Override
     public ElectricCar createCar() {
-        ElectricCar electricCar = new ElectricCar();
+       ElectricCar electricCar = new ElectricCar();
+        FuelType electricFuel = new FuelType("elektryczny");
+        electricCar.setFuel_type(electricFuel);
         return electricCar;
     }
 }
