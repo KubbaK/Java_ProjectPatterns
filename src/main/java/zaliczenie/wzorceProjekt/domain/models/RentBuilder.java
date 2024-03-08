@@ -1,27 +1,15 @@
 package zaliczenie.wzorceProjekt.domain.models;
 
 import java.util.Date;
-
+//Tydzień 1, Wzorzec Budowniczy, budowniczy służy do wytworzenia obiektu wypożyczenia
 public class RentBuilder {
     private Rent rent;
 
-    public RentBuilder() {
+    public RentBuilder(Car car, String customerName, Date startDate) {
         rent = new Rent();
-    }
-
-    public RentBuilder withCar(Car car) {
         rent.setCar(car);
-        return this;
-    }
-
-    public RentBuilder withCustomerName(String customerName) {
         rent.setCustomerName(customerName);
-        return this;
-    }
-
-    public RentBuilder withStartDate(Date startDate) {
         rent.setStartDate(startDate);
-        return this;
     }
 
     public RentBuilder withEndDate(Date endDate) {
@@ -33,3 +21,4 @@ public class RentBuilder {
         return rent;
     }
 }
+//Koniec tydzień 1, Wzorzec Budowniczy

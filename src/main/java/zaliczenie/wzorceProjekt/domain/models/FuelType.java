@@ -1,7 +1,7 @@
 package zaliczenie.wzorceProjekt.domain.models;
 
 
-class FuelType {
+public class FuelType {
     private String name;
 
     public FuelType(String name) {

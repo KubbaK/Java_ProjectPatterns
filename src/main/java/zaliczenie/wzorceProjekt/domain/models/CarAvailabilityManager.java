@@ -2,10 +2,10 @@ package zaliczenie.wzorceProjekt.domain.models;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//Tydzień 1, Wzorzec Singleton, tworzy zarządce do zarządzania wypożyczeniami, zapewniając jedną instancje w systemie.
 public class CarAvailabilityManager {
     private static CarAvailabilityManager instance;
-    private List<Car> availableCars;
+    private final List<Car> availableCars;
 
     private CarAvailabilityManager() {
         availableCars = new ArrayList<>();
@@ -30,4 +30,4 @@ public class CarAvailabilityManager {
         return availableCars;
     }
 }
-
+//Koniec Tydzień 1, Wzorzec Singleton

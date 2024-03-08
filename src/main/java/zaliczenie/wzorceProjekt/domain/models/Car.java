@@ -2,12 +2,14 @@ package zaliczenie.wzorceProjekt.domain.models;
 
 import org.hibernate.id.GUIDGenerator;
 
+import java.util.Date;
+
 public abstract class Car {
 
     private int id;
     private String brand;
     private String model;
-    private int production_date;
+    private Date production_date;
     private String color;
     private String photo_url;
     private FuelType fuel_type;
@@ -15,7 +17,7 @@ public abstract class Car {
     public Car() {
     }
     
-    public Car(int id, String brand, String model, int production_date, String color, String photo_ur, FuelType fuel_type) {
+    public Car(int id, String brand, String model, Date production_date, String color, String photo_url, FuelType fuel_type) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -49,11 +51,11 @@ public abstract class Car {
         this.model = model;
     }
 
-    public int getProduction_date() {
+    public Date getProduction_date() {
         return production_date;
     }
 
-    public void setProduction_date(int production_date) {
+    public void setProduction_date(Date production_date) {
         this.production_date = production_date;
     }
 
@@ -72,6 +74,7 @@ public abstract class Car {
     public void setPhoto_url(String photo_url) {
         this.photo_url = photo_url;
     }
+    //Tydzien 1, prototyp pozwalający na klonowanie samochodu
     public Car DeepClone(Car car, Car copyCar){
         copyCar.brand = car.brand;
         copyCar.color = car.color;
@@ -80,6 +83,7 @@ public abstract class Car {
         copyCar.production_date = car.production_date;
         return car;
     }
+    //Koniec tydzien 1, prototyp
     public FuelType getFuel_type() {
         return fuel_type;
     }
