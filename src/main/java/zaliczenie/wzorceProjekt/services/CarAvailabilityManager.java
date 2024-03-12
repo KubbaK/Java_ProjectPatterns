@@ -31,5 +31,17 @@ public class CarAvailabilityManager {
     public List<Car> getAvailableCars() {
         return availableCars;
     }
+
+    public List<Car> getAvailableEcoCars() {
+        List<Car> ecoCars = new ArrayList<>();
+
+        for (Car car : availableCars) {
+            if (car.isEco()) {
+                ecoCars.add(car);
+            }
+        }
+
+        return ecoCars;
+    }
 }
 //Koniec Tydzień 1, Wzorzec Singleton

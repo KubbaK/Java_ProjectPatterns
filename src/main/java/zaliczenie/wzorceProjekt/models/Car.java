@@ -1,5 +1,7 @@
 package zaliczenie.wzorceProjekt.models;
 
+import zaliczenie.wzorceProjekt.models.Fuel.IFuelType;
+
 import java.util.Date;
 
 public abstract class Car {
@@ -10,12 +12,12 @@ public abstract class Car {
     private Date production_date;
     private String color;
     private String photo_url;
-    private FuelType fuel_type;
+    private IFuelType fuel_type;
 
     public Car() {
     }
     
-    public Car(int id, String brand, String model, Date production_date, String color, String photo_url, FuelType fuel_type) {
+    public Car(int id, String brand, String model, Date production_date, String color, String photo_url, IFuelType fuel_type) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -79,15 +81,21 @@ public abstract class Car {
         copyCar.photo_url = car.photo_url;
         copyCar.model = car.model;
         copyCar.production_date = car.production_date;
+        copyCar.fuel_type = car.fuel_type;
         return car;
     }
     //Koniec tydzien 1, prototyp
-    public FuelType getFuel_type() {
+    public IFuelType getFuel_type() {
         return fuel_type;
     }
 
-    public void setFuel_type(FuelType fuel_type) {
+    public void setFuel_type(IFuelType fuel_type) {
         this.fuel_type = fuel_type;
     }
 
+    //Tydzień 2, Wzorzec Bridge, pozwala na ustawienie różnych typów paliw i pobranie informacji czy są eco
+    public Boolean isEco() {
+        return fuel_type.isEco();
+    }
+    //Koniec tydzien 2, Bridge
 }
