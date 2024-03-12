@@ -1,4 +1,6 @@
-package zaliczenie.wzorceProjekt.domain.models;
+package zaliczenie.wzorceProjekt.services;
+
+import zaliczenie.wzorceProjekt.models.Car;
 
 import java.util.ArrayList;
 import java.util.List;

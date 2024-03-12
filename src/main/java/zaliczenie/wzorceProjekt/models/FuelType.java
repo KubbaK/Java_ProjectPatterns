@@ -1,4 +1,4 @@
-package zaliczenie.wzorceProjekt.domain.models;
+package zaliczenie.wzorceProjekt.models;
 
 
 public class FuelType {

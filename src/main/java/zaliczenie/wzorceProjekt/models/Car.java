@@ -1,6 +1,4 @@
-package zaliczenie.wzorceProjekt.domain.models;
-
-import org.hibernate.id.GUIDGenerator;
+package zaliczenie.wzorceProjekt.models;
 
 import java.util.Date;
 

@@ -1,18 +1,17 @@
-package zaliczenie.wzorceProjekt.domain.models;
+package zaliczenie.wzorceProjekt.models;
 
-import javax.management.openmbean.InvalidOpenTypeException;
 import java.util.Date;
 
 public class ElectricCar extends Car{
     private String batteryCapacity;
 
-    ElectricCar(int id, String brand, String model, Date production_date, String color, String photo_url, FuelType fuel_type, String batteryCapacity)
+    public ElectricCar(int id, String brand, String model, Date production_date, String color, String photo_url, FuelType fuel_type, String batteryCapacity)
     {
         super(id, brand, model, production_date, color, photo_url, fuel_type);
         setBatteryCapacity(batteryCapacity);
     }
 
-    ElectricCar(){}
+    public ElectricCar(){}
 
     //Tydzien 1, prototyp pozwalający na klonowanie samochodu elektrycznego
     public ElectricCar DeepClone(ElectricCar car){

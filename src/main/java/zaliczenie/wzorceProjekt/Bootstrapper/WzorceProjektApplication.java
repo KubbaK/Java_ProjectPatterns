@@ -2,8 +2,11 @@ package zaliczenie.wzorceProjekt.Bootstrapper;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import zaliczenie.wzorceProjekt.domain.models.*;
-import java.time.LocalDateTime;
+import zaliczenie.wzorceProjekt.factories.CombustionCarFactory;
+import zaliczenie.wzorceProjekt.factories.ElectricCarFactory;
+import zaliczenie.wzorceProjekt.models.*;
+import zaliczenie.wzorceProjekt.services.CarAvailabilityManager;
+
 import java.util.Date;
 
 @SpringBootApplication

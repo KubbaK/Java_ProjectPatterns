@@ -1,7 +1,7 @@
-package zaliczenie.wzorceProjekt.domain.repositories;
+package zaliczenie.wzorceProjekt.repositories;
 
 import org.springframework.data.repository.CrudRepository;
-import zaliczenie.wzorceProjekt.domain.models.Car;
+import zaliczenie.wzorceProjekt.models.Car;
 
 public interface CarRepo extends CrudRepository<Car,Integer> {
     

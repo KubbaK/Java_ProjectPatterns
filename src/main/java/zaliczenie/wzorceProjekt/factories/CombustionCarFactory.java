@@ -1,5 +1,8 @@
-package zaliczenie.wzorceProjekt.domain.models;
+package zaliczenie.wzorceProjekt.factories;
 
+
+import zaliczenie.wzorceProjekt.models.CombustionCar;
+import zaliczenie.wzorceProjekt.models.FuelType;
 
 import java.util.Date;
 //Tydzień 1, Wzorzec Fabryka, fabryka posiadająca metode wytwórczą do tworzenia samochodów spalinowych
