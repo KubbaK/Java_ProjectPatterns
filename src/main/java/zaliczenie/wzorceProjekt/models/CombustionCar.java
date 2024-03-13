@@ -8,8 +8,8 @@ public class CombustionCar extends Car{
     private String fuelTankCapacity;
 
     public CombustionCar(int id, String brand, String model, Date production_date,
-                         String color, String photo_url, IFuelType fuel_type, String fuelTankCapacity){
-        super(id, brand, model, production_date, color, photo_url, fuel_type);
+                         String color, String photo_url, IFuelType fuel_type, CarEquipment carEquipment, String fuelTankCapacity){
+        super(id, brand, model, production_date, color, photo_url, fuel_type, carEquipment);
         setFuelTankCapacity(fuelTankCapacity);
     }
 

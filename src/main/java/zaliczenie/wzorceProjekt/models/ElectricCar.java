@@ -7,9 +7,9 @@ import java.util.Date;
 public class ElectricCar extends Car{
     private String batteryCapacity;
 
-    public ElectricCar(int id, String brand, String model, Date production_date, String color, String photo_url, IFuelType fuel_type, String batteryCapacity)
+    public ElectricCar(int id, String brand, String model, Date production_date, String color, String photo_url, IFuelType fuel_type, CarEquipment carEquipment, String batteryCapacity)
     {
-        super(id, brand, model, production_date, color, photo_url, fuel_type);
+        super(id, brand, model, production_date, color, photo_url, fuel_type, carEquipment);
         setBatteryCapacity(batteryCapacity);
     }
 

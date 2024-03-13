@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import zaliczenie.wzorceProjekt.controllers.CarsController;
+import zaliczenie.wzorceProjekt.factories.CarEquipmentFactory;
 import zaliczenie.wzorceProjekt.factories.CombustionCarFactory;
 import zaliczenie.wzorceProjekt.factories.ElectricCarFactory;
 import zaliczenie.wzorceProjekt.models.*;
@@ -22,35 +23,41 @@ public class WzorceProjektApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(WzorceProjektApplication.class, args);
-                
-                CarAvailabilityManager carManager = CarAvailabilityManager.getInstance();
 
+        CarAvailabilityManager carManager = CarAvailabilityManager.getInstance();
 
-                var tesla = ElectricCarFactory.CreateCar(1, "Tesla", "X",
-                new Date(), "Red", "", new ElectricFuel(), "1000");
+        var carEquipment1 = CarEquipmentFactory.getCarrEquipment("prestige", true, true, true);
+        var carEquipment2 = CarEquipmentFactory.getCarrEquipment("prestige2", true, true, true);
 
-                var bmw = CombustionCarFactory.CreateCar(2, "BMW", "M3",
-                        new Date(), "Black", "", new PetrolFuel(), "3000");
+        var tesla = ElectricCarFactory.CreateCar(1, "Tesla", "X",
+                new Date(), "Red", "", new ElectricFuel(), carEquipment1,"1000");
 
-                var tesla2 = tesla.DeepClone(tesla);
-                tesla2.setModel("S");
+        var bmw = CombustionCarFactory.CreateCar(2, "BMW", "M3",
+                new Date(), "Black", "", new PetrolFuel(), carEquipment2,"3000");
 
-                carManager.addCar(tesla);
-                carManager.addCar(bmw);
-                carManager.addCar(tesla2);
+        var tesla2 = tesla.DeepClone(tesla);
+        tesla2.setModel("S");
 
-                System.out.println("Dostępne samochody:");
-                for (Car car : carManager.getAvailableCars()) {
-                    System.out.println(car.getModel());
-                    }
+        carManager.addCar(tesla);
+        carManager.addCar(bmw);
+        carManager.addCar(tesla2);
 
-                System.out.println("Samochody eco:");
-                    var ecoCars = carManager.getAvailableEcoCars();
-                    for (Car car : ecoCars) {
-                        System.out.println(car.getModel());
-                    }
-                }
+        System.out.println("Dostępne samochody:");
+        for (Car car : carManager.getAvailableCars()) {
+            System.out.println(car.getModel());
+        }
 
+        System.out.println("Samochody eco:");
+        var ecoCars = carManager.getAvailableEcoCars();
+        for (Car car : ecoCars) {
+            System.out.println(car.getModel());
+        }
 
+        if (carEquipment1 == carEquipment2) {
+            System.out.println("carEquipment1 i carEquipment2 wskazuja na ten sam obiekt");
+        } else {
+            System.out.println("carEquipment1 i carEquipment2 wskazuja na inne obiekty");
+        }
+    }
 
 }

@@ -13,11 +13,12 @@ public abstract class Car {
     private String color;
     private String photo_url;
     private IFuelType fuel_type;
+    private CarEquipment carEquipment;
 
     public Car() {
     }
     
-    public Car(int id, String brand, String model, Date production_date, String color, String photo_url, IFuelType fuel_type) {
+    public Car(int id, String brand, String model, Date production_date, String color, String photo_url, IFuelType fuel_type, CarEquipment carEquipment) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -25,6 +26,7 @@ public abstract class Car {
         this.color = color;
         this.photo_url = photo_url;
         this.fuel_type = fuel_type;
+        this.carEquipment = carEquipment;
     }
 
     public int getId() {
@@ -82,6 +84,7 @@ public abstract class Car {
         copyCar.model = car.model;
         copyCar.production_date = car.production_date;
         copyCar.fuel_type = car.fuel_type;
+        copyCar.carEquipment = car.carEquipment;
         return car;
     }
     //Koniec tydzien 1, prototyp
