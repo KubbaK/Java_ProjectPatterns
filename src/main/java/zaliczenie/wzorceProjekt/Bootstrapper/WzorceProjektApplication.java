@@ -27,7 +27,7 @@ public class WzorceProjektApplication {
         CarAvailabilityManager carManager = CarAvailabilityManager.getInstance();
 
         var carEquipment1 = CarEquipmentFactory.getCarrEquipment("prestige", true, true, true);
-        var carEquipment2 = CarEquipmentFactory.getCarrEquipment("prestige2", true, true, true);
+        var carEquipment2 = CarEquipmentFactory.getCarrEquipment("prestige", true, true, true);
 
         var tesla = ElectricCarFactory.CreateCar(1, "Tesla", "X",
                 new Date(), "Red", "", new ElectricFuel(), carEquipment1,"1000");

@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-//Tydzień 3, Wzorzec Proxy, tworzy pełnomocnika który przechowuje dane w pamieci podręcznej
+//Tydzień 4, Wzorzec Proxy, tworzy pełnomocnika który przechowuje dane w pamieci podręcznej
 @Service
 @Primary
 public class ProxyCarsService implements ICarsService{
@@ -36,4 +36,4 @@ public class ProxyCarsService implements ICarsService{
         }
     }
 }
-//Koniec Tydzień 3, Wzorzec Proxy
+//Koniec Tydzień 4, Wzorzec Proxy

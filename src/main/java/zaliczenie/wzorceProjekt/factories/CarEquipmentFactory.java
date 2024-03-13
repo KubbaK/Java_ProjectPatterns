@@ -5,7 +5,7 @@ import zaliczenie.wzorceProjekt.models.CarEquipment;
 import java.util.HashMap;
 import java.util.Map;
 
-//Tydzień 3, Wzorzec Flyweight, dzięki niemu obiekty tego samego typu są tworzone tylko raz
+//Tydzień 4, Wzorzec Flyweight, dzięki niemu obiekty tego samego typu są tworzone tylko raz
 public class CarEquipmentFactory {
     static Map<String, CarEquipment> carEquipments = new HashMap<>();
 
@@ -18,4 +18,4 @@ public class CarEquipmentFactory {
         return result;
     }
 }
-//Koniec tydzien 3, Flyweight
+//Koniec tydzien 4, Flyweight
