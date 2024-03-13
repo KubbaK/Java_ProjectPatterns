@@ -1,8 +1,10 @@
 package zaliczenie.wzorceProjekt.Bootstrapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import zaliczenie.wzorceProjekt.controllers.CarsController;
 import zaliczenie.wzorceProjekt.factories.CombustionCarFactory;
 import zaliczenie.wzorceProjekt.factories.ElectricCarFactory;
@@ -11,6 +13,7 @@ import zaliczenie.wzorceProjekt.models.Fuel.ElectricFuel;
 import zaliczenie.wzorceProjekt.models.Fuel.PetrolFuel;
 import zaliczenie.wzorceProjekt.services.CarAvailabilityManager;
 import zaliczenie.wzorceProjekt.services.ICarsService;
+import zaliczenie.wzorceProjekt.services.ProxyCarsService;
 
 import java.util.Date;
 
