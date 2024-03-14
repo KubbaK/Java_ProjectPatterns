@@ -17,6 +17,7 @@ import zaliczenie.wzorceProjekt.services.ICarsService;
 import zaliczenie.wzorceProjekt.services.ProxyCarsService;
 
 import java.util.Date;
+import zaliczenie.wzorceProjekt.builders.RentBuilder;
 
 @SpringBootApplication
 public class WzorceProjektApplication {
@@ -58,6 +59,44 @@ public class WzorceProjektApplication {
         } else {
             System.out.println("carEquipment1 i carEquipment2 wskazuja na inne obiekty");
         }
+        
+        System.out.println();
+        Rent rent1 = new RentBuilder(tesla, "Adam Adamski", new Date())
+                        .withEndDate(new Date())
+                        .build();
+
+        Rent rent2 = new RentBuilder(bmw, "Maciej Maciejski", new Date())
+                        .withEndDate(new Date())
+                        .build();
+
+        Rent rent3 = new RentBuilder(bmw, "Adam Adamski", new Date())
+                        .withEndDate(new Date())
+                        .build();
+
+        CompositeRent compositeRent = new CompositeRent();
+        CompositeRent adamAdamskiCompositeRent = new CompositeRent();
+        CompositeRent maciejMaciejskiCompositeRent = new CompositeRent();
+
+        SingleRent firstRent= new SingleRent(rent1);
+        SingleRent secondRent = new SingleRent(rent2);
+        SingleRent thirdRent = new SingleRent(rent3);
+
+        compositeRent.addRentComponent(firstRent);
+        compositeRent.addRentComponent(secondRent);
+        compositeRent.addRentComponent(thirdRent);
+
+        adamAdamskiCompositeRent.addRentComponent(firstRent);
+        adamAdamskiCompositeRent.addRentComponent(thirdRent);
+        maciejMaciejskiCompositeRent.addRentComponent(secondRent);
+
+        System.out.println("Wszystkie wypożyczenia:");
+        compositeRent.printRentDetails();
+
+        System.out.println("\nWypożyczenia Adama Adamskiego:");
+        adamAdamskiCompositeRent.printRentDetails();
+
+        System.out.println("\nWypożyczenia Macieja Maciejskiego:");
+        maciejMaciejskiCompositeRent.printRentDetails();
     }
 
 }
