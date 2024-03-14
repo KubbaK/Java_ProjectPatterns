@@ -1,4 +1,6 @@
-package zaliczenie.wzorceProjekt.models;
+package zaliczenie.wzorceProjekt.models.Rent;
+
+import zaliczenie.wzorceProjekt.models.Rent.Rent;
 
 public class SingleRent implements RentComponent {
     private Rent rent;

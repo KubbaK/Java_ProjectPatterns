@@ -11,7 +11,7 @@ import zaliczenie.wzorceProjekt.dtos.RentCreateDto;
 import zaliczenie.wzorceProjekt.exceptions.CarNotFoundException;
 import zaliczenie.wzorceProjekt.exceptions.RentNotFoundException;
 import zaliczenie.wzorceProjekt.models.Car;
-import zaliczenie.wzorceProjekt.models.Rent;
+import zaliczenie.wzorceProjekt.models.Rent.Rent;
 import zaliczenie.wzorceProjekt.repositories.CarsRepository;
 import zaliczenie.wzorceProjekt.repositories.RentsRepository;
 

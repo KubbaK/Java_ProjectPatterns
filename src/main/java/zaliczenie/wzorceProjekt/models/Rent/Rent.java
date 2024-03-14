@@ -1,6 +1,7 @@
-package zaliczenie.wzorceProjekt.models;
+package zaliczenie.wzorceProjekt.models.Rent;
 
 import java.util.Date;
+import zaliczenie.wzorceProjekt.models.Car;
 
 public class Rent {
     private Long id;
