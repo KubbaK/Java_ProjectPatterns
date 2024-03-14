@@ -1,6 +1,6 @@
 package zaliczenie.wzorceProjekt.commands;
 
-import zaliczenie.wzorceProjekt.models.Rent;
+import zaliczenie.wzorceProjekt.models.Rent.Rent;
 
 public class AddRentCommand extends RentCommand{
 

@@ -1,7 +1,7 @@
 package zaliczenie.wzorceProjekt.builders;
 
 import zaliczenie.wzorceProjekt.models.Car;
-import zaliczenie.wzorceProjekt.models.Rent;
+import zaliczenie.wzorceProjekt.models.Rent.Rent;
 
 import java.util.Date;
 //Tydzień 1, Wzorzec Budowniczy, budowniczy służy do wytworzenia obiektu wypożyczenia

@@ -1,5 +1,6 @@
-package zaliczenie.wzorceProjekt.models;
+package zaliczenie.wzorceProjekt.models.Rent;
 
+import zaliczenie.wzorceProjekt.models.Rent.RentComponent;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,7 +1,7 @@
 package zaliczenie.wzorceProjekt.commands;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import zaliczenie.wzorceProjekt.models.Rent;
+import zaliczenie.wzorceProjekt.models.Rent.Rent;
 import zaliczenie.wzorceProjekt.repositories.RentsRepository;
 
 public abstract class RentCommand {
