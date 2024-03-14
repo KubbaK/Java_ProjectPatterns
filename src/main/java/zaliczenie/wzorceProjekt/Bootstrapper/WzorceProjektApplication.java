@@ -21,6 +21,9 @@ import zaliczenie.wzorceProjekt.services.ProxyCarsService;
 
 import java.util.Date;
 import zaliczenie.wzorceProjekt.builders.RentBuilder;
+import zaliczenie.wzorceProjekt.decorators.ReceiptDecorator;
+import zaliczenie.wzorceProjekt.models.Payment.BasePayment;
+import zaliczenie.wzorceProjekt.models.Payment.Payment;
 
 @SpringBootApplication
 public class WzorceProjektApplication {
@@ -100,6 +103,11 @@ public class WzorceProjektApplication {
 
         System.out.println("\nWypożyczenia Macieja Maciejskiego:");
         maciejMaciejskiCompositeRent.printRentDetails();
+        
+        System.out.println();
+        Payment payment = new BasePayment();
+        payment = new ReceiptDecorator(payment);
+        payment.pay();
     }
 
 }
