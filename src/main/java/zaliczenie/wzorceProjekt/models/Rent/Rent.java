@@ -16,7 +16,7 @@ public class Rent {
     private Date startDate;
     private Date endDate;
     private float price;
-    Rent(){
+    public Rent(){
         ICarPriceService carPriceService = null;
 
         if (car instanceof ElectricCar) {
