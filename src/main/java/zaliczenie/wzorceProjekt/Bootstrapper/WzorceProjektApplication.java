@@ -22,6 +22,8 @@ import zaliczenie.wzorceProjekt.services.ProxyCarsService;
 import java.util.Date;
 import zaliczenie.wzorceProjekt.builders.RentBuilder;
 import zaliczenie.wzorceProjekt.decorators.ReceiptDecorator;
+import zaliczenie.wzorceProjekt.facade.CarRentFacade;
+import zaliczenie.wzorceProjekt.facade.CarRentFacadeImpl;
 import zaliczenie.wzorceProjekt.models.Payment.BasePayment;
 import zaliczenie.wzorceProjekt.models.Payment.Payment;
 
@@ -108,6 +110,18 @@ public class WzorceProjektApplication {
         Payment payment = new BasePayment();
         payment = new ReceiptDecorator(payment);
         payment.pay();
+        
+        
+        CarRentFacade carRentalFacade = new CarRentFacadeImpl(carManager);
+        Date startDate = new Date();
+        Date endDate = new Date(startDate.getTime() + (1000 * 60 * 60 * 24 * 7)); 
+
+        carRentalFacade.rentCar("Monika Kowalska", bmw, startDate, endDate);
+
+        boolean isAvailable = carRentalFacade.checkAvailability(bmw, startDate, endDate);
+        System.out.println("Car is available: " + isAvailable);
+
+        carRentalFacade.returnCar("Monika Kowalska", bmw);
     }
 
 }
