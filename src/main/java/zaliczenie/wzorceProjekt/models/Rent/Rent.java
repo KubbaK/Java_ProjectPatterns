@@ -16,16 +16,6 @@ public class Rent {
     private Date startDate;
     private Date endDate;
     private float price;
-    public Rent(){
-        ICarPriceService carPriceService = null;
-
-        if (car instanceof ElectricCar) {
-            this.price = new ElectricCarPriceAdapter(new CarPriceCalculator()).calculatePrice(car.getPrice());
-        } else if (car instanceof CombustionCar) {
-            this.price = new CombustionCarPriceAdapter(new CarPriceCalculator(),((CombustionCar) car).getFuelTankCapacity()*7)
-                    .calculatePrice(car.getPrice());
-        }
-    }
 
     public Long getId() {
         return id;
@@ -40,6 +30,14 @@ public class Rent {
     }
 
     public void setCar(Car car) {
+        ICarPriceService carPriceService = null;
+
+        if (car instanceof ElectricCar) {
+            this.price = new ElectricCarPriceAdapter(new CarPriceCalculator()).calculatePrice(car.getPrice());
+        } else if (car instanceof CombustionCar) {
+            this.price = new CombustionCarPriceAdapter(new CarPriceCalculator(),((CombustionCar) car).getFuelTankCapacity()*7)
+                    .calculatePrice(car.getPrice());
+        }
         this.car = car;
     }
 

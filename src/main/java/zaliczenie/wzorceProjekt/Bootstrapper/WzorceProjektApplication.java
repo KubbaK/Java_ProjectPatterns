@@ -19,7 +19,10 @@ import zaliczenie.wzorceProjekt.services.CarAvailabilityManager;
 import zaliczenie.wzorceProjekt.services.ICarsService;
 import zaliczenie.wzorceProjekt.services.ProxyCarsService;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 import zaliczenie.wzorceProjekt.builders.RentBuilder;
 import zaliczenie.wzorceProjekt.decorators.ReceiptDecorator;
 import zaliczenie.wzorceProjekt.facade.CarRentFacade;
@@ -109,9 +112,13 @@ public class WzorceProjektApplication {
         System.out.println();
         Payment payment = new BasePayment();
         payment = new ReceiptDecorator(payment);
-        payment.pay();
-        
-        
+        List<Rent> rents = new ArrayList<>();
+        rents.add(rent1);
+        rents.add(rent2);
+        rents.add(rent3);
+
+        payment.pay(rents);
+
         CarRentFacade carRentalFacade = new CarRentFacadeImpl(carManager);
         Date startDate = new Date();
         Date endDate = new Date(startDate.getTime() + (1000 * 60 * 60 * 24 * 7)); 

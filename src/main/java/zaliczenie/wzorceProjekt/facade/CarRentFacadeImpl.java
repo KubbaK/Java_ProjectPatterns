@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import zaliczenie.wzorceProjekt.models.Car;
 import zaliczenie.wzorceProjekt.services.CarAvailabilityManager;
-
+//Tydzień 4, fasda, która upraszcza korzystanie z CarAvailabilityManager
 public class CarRentFacadeImpl implements CarRentFacade {
     private CarAvailabilityManager availabilityManager;
 
@@ -36,3 +36,4 @@ public class CarRentFacadeImpl implements CarRentFacade {
         return availableCars.contains(car);
     }
 }
+//Tydzień 4, koniec wzorca fasada

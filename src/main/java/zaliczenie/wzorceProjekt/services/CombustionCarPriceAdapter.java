@@ -1,5 +1,6 @@
 package zaliczenie.wzorceProjekt.services;
 
+//Tydzień 3, adapter wyliczający cene wypożyczenia samochodu, który dolicza cene paliwa
 public class CombustionCarPriceAdapter  {
     float fuelPrice;
     CarPriceCalculator carPriceCalculator;
@@ -13,3 +14,4 @@ public class CombustionCarPriceAdapter  {
         return carPriceCalculator.calculatePrice(basePrice) + fuelPrice;
     }
 }
+//Tydzień 3, koniec wzorca adapter

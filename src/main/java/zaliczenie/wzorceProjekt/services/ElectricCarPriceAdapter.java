@@ -1,5 +1,6 @@
 package zaliczenie.wzorceProjekt.services;
 
+//Tydzień 3, adapter wyliczający cene wypożyczenia samochodu
 public class ElectricCarPriceAdapter {
     CarPriceCalculator carPriceCalculator;
     public ElectricCarPriceAdapter(CarPriceCalculator carPriceCalculator){
@@ -10,3 +11,4 @@ public class ElectricCarPriceAdapter {
         return carPriceCalculator.calculatePrice(basePrice);
     }
 }
+//Tydzień 3, koniec wzorca adapter

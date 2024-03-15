@@ -3,7 +3,7 @@ package zaliczenie.wzorceProjekt.models.Rent;
 import zaliczenie.wzorceProjekt.models.Rent.RentComponent;
 import java.util.ArrayList;
 import java.util.List;
-
+//Tydzień 3, kompozyt, grupujący komponenty wypożyczenia
 public class CompositeRent implements RentComponent{
     private List<RentComponent> rentComponents = new ArrayList<>();
 
@@ -23,3 +23,4 @@ public class CompositeRent implements RentComponent{
     }
     
 }
+//Tydzień 3, koniec wzorca kompozyt
