@@ -14,11 +14,11 @@ public abstract class Car {
     private String photo_url;
     private IFuelType fuel_type;
     private CarEquipment carEquipment;
-
+    private float price;
     public Car() {
     }
     
-    public Car(int id, String brand, String model, Date production_date, String color, String photo_url, IFuelType fuel_type, CarEquipment carEquipment) {
+    public Car(int id, String brand, String model, Date production_date, String color, String photo_url, IFuelType fuel_type, CarEquipment carEquipment, float price) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -27,6 +27,7 @@ public abstract class Car {
         this.photo_url = photo_url;
         this.fuel_type = fuel_type;
         this.carEquipment = carEquipment;
+        this.price = price;
     }
 
     public int getId() {
@@ -85,9 +86,11 @@ public abstract class Car {
         copyCar.production_date = car.production_date;
         copyCar.fuel_type = car.fuel_type;
         copyCar.carEquipment = car.carEquipment;
+        copyCar.price = car.price;
         return car;
     }
     //Koniec tydzien 1, prototyp
+
     public IFuelType getFuel_type() {
         return fuel_type;
     }
@@ -99,6 +102,14 @@ public abstract class Car {
     //Tydzień 2, Wzorzec Bridge, pozwala na ustawienie różnych typów paliw i pobranie informacji czy są eco
     public Boolean isEco() {
         return fuel_type.isEco();
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
     }
     //Koniec tydzien 2, Bridge
 }

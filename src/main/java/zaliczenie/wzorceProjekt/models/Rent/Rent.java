@@ -2,6 +2,12 @@ package zaliczenie.wzorceProjekt.models.Rent;
 
 import java.util.Date;
 import zaliczenie.wzorceProjekt.models.Car;
+import zaliczenie.wzorceProjekt.models.CombustionCar;
+import zaliczenie.wzorceProjekt.models.ElectricCar;
+import zaliczenie.wzorceProjekt.services.CarPriceCalculator;
+import zaliczenie.wzorceProjekt.services.CombustionCarPriceAdapter;
+import zaliczenie.wzorceProjekt.services.ElectricCarPriceAdapter;
+import zaliczenie.wzorceProjekt.services.ICarPriceService;
 
 public class Rent {
     private Long id;
@@ -9,6 +15,17 @@ public class Rent {
     private String customerName;
     private Date startDate;
     private Date endDate;
+    private float price;
+    Rent(){
+        ICarPriceService carPriceService = null;
+
+        if (car instanceof ElectricCar) {
+            this.price = new ElectricCarPriceAdapter(new CarPriceCalculator()).calculatePrice(car.getPrice());
+        } else if (car instanceof CombustionCar) {
+            this.price = new CombustionCarPriceAdapter(new CarPriceCalculator(),((CombustionCar) car).getFuelTankCapacity()*7)
+                    .calculatePrice(car.getPrice());
+        }
+    }
 
     public Long getId() {
         return id;
@@ -49,6 +66,9 @@ public class Rent {
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
-    
-    
+
+    public float getPrice() { return price; }
+
+    public void setPrice(float price) { this.price = price; }
+
 }

@@ -37,10 +37,10 @@ public class WzorceProjektApplication {
         var carEquipment2 = CarEquipmentFactory.getCarrEquipment("prestige", true, true, true);
 
         var tesla = ElectricCarFactory.CreateCar(1, "Tesla", "X",
-                new Date(), "Red", "", new ElectricFuel(), carEquipment1,"1000");
+                new Date(), "Red", "", new ElectricFuel(), carEquipment1,1000, 200);
 
         var bmw = CombustionCarFactory.CreateCar(2, "BMW", "M3",
-                new Date(), "Black", "", new PetrolFuel(), carEquipment2,"3000");
+                new Date(), "Black", "", new PetrolFuel(), carEquipment2,60, 300);
 
         var tesla2 = tesla.DeepClone(tesla);
         tesla2.setModel("S");

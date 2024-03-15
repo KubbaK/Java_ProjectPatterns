@@ -5,11 +5,11 @@ import zaliczenie.wzorceProjekt.models.Fuel.IFuelType;
 import java.util.Date;
 
 public class CombustionCar extends Car{
-    private String fuelTankCapacity;
+    private float fuelTankCapacity;
 
     public CombustionCar(int id, String brand, String model, Date production_date,
-                         String color, String photo_url, IFuelType fuel_type, CarEquipment carEquipment, String fuelTankCapacity){
-        super(id, brand, model, production_date, color, photo_url, fuel_type, carEquipment);
+                         String color, String photo_url, IFuelType fuel_type, CarEquipment carEquipment, float fuelTankCapacity, float price){
+        super(id, brand, model, production_date, color, photo_url, fuel_type, carEquipment, price);
         setFuelTankCapacity(fuelTankCapacity);
     }
 
@@ -25,11 +25,11 @@ public class CombustionCar extends Car{
     }
     //Koniec tydzien 1, prototyp
 
-    public String getFuelTankCapacity() {
+    public float getFuelTankCapacity() {
         return fuelTankCapacity;
     }
 
-    public void setFuelTankCapacity(String fuelTankCapacity) {
+    public void setFuelTankCapacity(float fuelTankCapacity) {
         this.fuelTankCapacity = fuelTankCapacity;
     }
 }

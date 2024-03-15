@@ -5,11 +5,12 @@ import zaliczenie.wzorceProjekt.models.Fuel.IFuelType;
 import java.util.Date;
 
 public class ElectricCar extends Car{
-    private String batteryCapacity;
+    private float batteryCapacity;
 
-    public ElectricCar(int id, String brand, String model, Date production_date, String color, String photo_url, IFuelType fuel_type, CarEquipment carEquipment, String batteryCapacity)
+    public ElectricCar(int id, String brand, String model, Date production_date, String color,
+                       String photo_url, IFuelType fuel_type, CarEquipment carEquipment, float batteryCapacity, float price)
     {
-        super(id, brand, model, production_date, color, photo_url, fuel_type, carEquipment);
+        super(id, brand, model, production_date, color, photo_url, fuel_type, carEquipment, price);
         setBatteryCapacity(batteryCapacity);
     }
 
@@ -25,11 +26,11 @@ public class ElectricCar extends Car{
     }
     //Koniec tydzien 1, prototyp
 
-    public String getBatteryCapacity() {
+    public float getBatteryCapacity() {
         return batteryCapacity;
     }
 
-    public void setBatteryCapacity(String batteryCapacity) {
+    public void setBatteryCapacity(float batteryCapacity) {
         this.batteryCapacity = batteryCapacity;
     }
 }

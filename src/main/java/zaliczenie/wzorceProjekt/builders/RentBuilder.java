@@ -21,6 +21,7 @@ public class RentBuilder {
     }
 
     public Rent build() {
+
         return rent;
     }
 }

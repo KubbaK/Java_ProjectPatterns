@@ -38,6 +38,4 @@ public class CarsService implements ICarsService {
         Optional<Car> carOptional = carsRepository.findById(id);
         return carOptional.orElse(null);
     }
-
-
 }
