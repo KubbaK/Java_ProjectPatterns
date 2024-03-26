@@ -24,9 +24,11 @@ import java.util.Date;
 import java.util.List;
 
 import zaliczenie.wzorceProjekt.builders.RentBuilder;
+import zaliczenie.wzorceProjekt.decorators.InvoiceDecorator;
 import zaliczenie.wzorceProjekt.decorators.ReceiptDecorator;
 import zaliczenie.wzorceProjekt.facade.CarRentFacade;
 import zaliczenie.wzorceProjekt.facade.CarRentFacadeImpl;
+import zaliczenie.wzorceProjekt.mediators.PaymentMediator;
 import zaliczenie.wzorceProjekt.models.Payment.BasePayment;
 import zaliczenie.wzorceProjekt.models.Payment.Payment;
 
@@ -129,6 +131,13 @@ public class WzorceProjektApplication {
         System.out.println("Car is available: " + isAvailable);
 
         carRentalFacade.returnCar("Monika Kowalska", bmw);
+        
+        
+        InvoiceDecorator invoiceDecorator = new InvoiceDecorator(new BasePayment());
+        ReceiptDecorator receiptDecorator = new ReceiptDecorator(new BasePayment());
+
+        PaymentMediator paymentMediator = new PaymentMediator(invoiceDecorator, receiptDecorator);
+        paymentMediator.processPayment(rents);
     }
 
 }
