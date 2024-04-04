@@ -1,10 +1,12 @@
 package zaliczenie.wzorceProjekt.models;
 
 import zaliczenie.wzorceProjekt.models.Fuel.IFuelType;
+import zaliczenie.wzorceProjekt.visitor.ICarComponent;
+import zaliczenie.wzorceProjekt.visitor.ICarVisitor;
 
 import java.util.Date;
 
-public class CombustionCar extends Car{
+public class CombustionCar extends Car implements ICarComponent {
     private float fuelTankCapacity;
 
     public CombustionCar(int id, String brand, String model, Date production_date,
@@ -31,5 +33,10 @@ public class CombustionCar extends Car{
 
     public void setFuelTankCapacity(float fuelTankCapacity) {
         this.fuelTankCapacity = fuelTankCapacity;
+    }
+
+    @Override
+    public void Accept(ICarVisitor visitor) {
+        visitor.VisitCombustionCar(this);
     }
 }

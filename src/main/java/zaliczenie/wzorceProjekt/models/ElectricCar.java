@@ -1,10 +1,12 @@
 package zaliczenie.wzorceProjekt.models;
 
 import zaliczenie.wzorceProjekt.models.Fuel.IFuelType;
+import zaliczenie.wzorceProjekt.visitor.ICarComponent;
+import zaliczenie.wzorceProjekt.visitor.ICarVisitor;
 
 import java.util.Date;
 
-public class ElectricCar extends Car{
+public class ElectricCar extends Car implements ICarComponent {
     private float batteryCapacity;
 
     public ElectricCar(int id, String brand, String model, Date production_date, String color,
@@ -32,5 +34,10 @@ public class ElectricCar extends Car{
 
     public void setBatteryCapacity(float batteryCapacity) {
         this.batteryCapacity = batteryCapacity;
+    }
+
+    @Override
+    public void Accept(ICarVisitor visitor) {
+        visitor.VisitElectricCar(this);
     }
 }
