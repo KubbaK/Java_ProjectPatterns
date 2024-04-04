@@ -20,4 +20,4 @@ public class FreeState implements State {
         System.out.println("Car is already returned");
     }
 }
-// Koniec Tydzień 6, Wzorzec Rent
+// Koniec Tydzień 6, Wzorzec State

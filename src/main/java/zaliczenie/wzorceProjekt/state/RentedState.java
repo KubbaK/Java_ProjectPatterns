@@ -20,6 +20,6 @@ public class RentedState implements State {
         System.out.println("Car is returned");
     }
 }
-// Koniec Tydzień 6, Wzorzec Rent
+// Koniec Tydzień 6, Wzorzec State
 
 
