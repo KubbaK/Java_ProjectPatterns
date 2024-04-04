@@ -1,7 +1,7 @@
 package zaliczenie.wzorceProjekt.state;
 
 import zaliczenie.wzorceProjekt.models.Rent.Rent;
-
+//Tydzień 6, Wzorzec State, modyfikuje działanie metody rent w zależności od obecnego stanu 
 public class RentedState implements State {
     private Rent rent;
 
@@ -20,6 +20,6 @@ public class RentedState implements State {
         System.out.println("Car is returned");
     }
 }
-
+// Koniec Tydzień 6, Wzorzec Rent
 
 
