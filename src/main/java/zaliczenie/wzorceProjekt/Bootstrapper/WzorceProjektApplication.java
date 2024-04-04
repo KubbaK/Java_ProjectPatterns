@@ -42,6 +42,8 @@ import zaliczenie.wzorceProjekt.strategy.RandomMessageNotificationStrategy;
 import zaliczenie.wzorceProjekt.template.CarManagementProcess;
 import zaliczenie.wzorceProjekt.template.CombustionCarManagement;
 import zaliczenie.wzorceProjekt.template.ElectricCarManagement;
+import zaliczenie.wzorceProjekt.visitor.CarRepairVisitor;
+import zaliczenie.wzorceProjekt.visitor.CarTankVisitor;
 
 @SpringBootApplication
 public class WzorceProjektApplication {
@@ -202,6 +204,15 @@ public class WzorceProjektApplication {
         electricCarProcess.manageCar();
         CarManagementProcess combustionCarProcess = new CombustionCarManagement();
         combustionCarProcess.manageCar();
+
+        var repairCar = new CarRepairVisitor();
+        var tankCar = new CarTankVisitor();
+
+        tesla.Accept(tankCar);
+        tesla.Accept(repairCar);
+        bmw.Accept(tankCar);
+        bmw.Accept(repairCar);
+
     }
 
 }
