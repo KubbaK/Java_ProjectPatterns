@@ -44,8 +44,8 @@ public class RentsService {
         return ResponseEntity.ok("Rent deleted successfully.");
     }
 
-    //Tydzień 5, Wzorzec Command, Pozwala zamknąć całe żądanie wykonania konkretnej czynności w osobnym obiekcie.
-    //Dzięki niemu łatwo można śledzić a nawet wycofywać zmiany
+    //Tydzień 5, Wzorzec Command i Memento, Command pozwala zamknąć całe żądanie wykonania konkretnej czynności w osobnym obiekcie.
+    //Dzięki Memento łatwo można śledzić a nawet wycofywać zmiany
     private void executeCommand(RentCommand command) {
         if (command.execute()) {
             rentCommandHistory.push(command);
@@ -60,5 +60,5 @@ public class RentsService {
             command.undo();
         }
     }
-    //Koniec tydzien 5, Command
+    //Koniec tydzien 5, Command i Memento
 }
