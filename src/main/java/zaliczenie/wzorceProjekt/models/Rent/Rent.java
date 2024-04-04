@@ -88,5 +88,5 @@ public class Rent {
     public void setState(State state) {
         this.state = state;
     }
-     // Koniec Tydzień 6, Wzorzec Rent
+     // Koniec Tydzień 6, Wzorzec State
 }
