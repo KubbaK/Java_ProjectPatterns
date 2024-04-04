@@ -39,6 +39,9 @@ import zaliczenie.wzorceProjekt.services.NotificationService;
 import zaliczenie.wzorceProjekt.strategy.OrderShippedNotificationStrategy;
 import zaliczenie.wzorceProjekt.strategy.PaymentReminderNotificationStrategy;
 import zaliczenie.wzorceProjekt.strategy.RandomMessageNotificationStrategy;
+import zaliczenie.wzorceProjekt.template.CarManagementProcess;
+import zaliczenie.wzorceProjekt.template.CombustionCarManagement;
+import zaliczenie.wzorceProjekt.template.ElectricCarManagement;
 
 @SpringBootApplication
 public class WzorceProjektApplication {
@@ -193,6 +196,12 @@ public class WzorceProjektApplication {
 
         notificationService.setNotificationStrategy(new RandomMessageNotificationStrategy());
         notificationService.notifyCustomer("Życzymy miłego korzystania.");
+        
+        System.out.println("TEMPLATE");
+        CarManagementProcess electricCarProcess = new ElectricCarManagement();
+        electricCarProcess.manageCar();
+        CarManagementProcess combustionCarProcess = new CombustionCarManagement();
+        combustionCarProcess.manageCar();
     }
 
 }
