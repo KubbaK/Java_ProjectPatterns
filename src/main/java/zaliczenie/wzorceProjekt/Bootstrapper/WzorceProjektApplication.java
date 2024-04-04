@@ -171,6 +171,14 @@ public class WzorceProjektApplication {
         carManager.removeCar(audi);
         carManager.addCar(peugeot);
 
+        System.out.println("STATE");
+        Rent new_rent = new RentBuilder(tesla, "Adam Adamski", new Date())
+                        .withEndDate(new Date())
+                        .build();
+        new_rent.rent();
+        new_rent.rent();
+        new_rent.returnCar();
+        new_rent.returnCar(); 
     }
 
 }
