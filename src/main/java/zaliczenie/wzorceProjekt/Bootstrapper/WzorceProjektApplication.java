@@ -35,6 +35,13 @@ import zaliczenie.wzorceProjekt.facade.CarRentFacadeImpl;
 import zaliczenie.wzorceProjekt.mediators.PaymentMediator;
 import zaliczenie.wzorceProjekt.models.Payment.BasePayment;
 import zaliczenie.wzorceProjekt.models.Payment.Payment;
+import zaliczenie.wzorceProjekt.services.NotificationService;
+import zaliczenie.wzorceProjekt.strategy.OrderShippedNotificationStrategy;
+import zaliczenie.wzorceProjekt.strategy.PaymentReminderNotificationStrategy;
+import zaliczenie.wzorceProjekt.strategy.RandomMessageNotificationStrategy;
+import zaliczenie.wzorceProjekt.template.CarManagementProcess;
+import zaliczenie.wzorceProjekt.template.CombustionCarManagement;
+import zaliczenie.wzorceProjekt.template.ElectricCarManagement;
 
 @SpringBootApplication
 public class WzorceProjektApplication {
@@ -154,23 +161,47 @@ public class WzorceProjektApplication {
                 System.out.println(tempCar.getBrand() + " " + tempCar.getModel());
         }
 
-        System.out.println("ITERATOR");
+        System.out.println("OBSERWATOR");
         Customer customer1 = new Customer("Adam");
         Customer customer2 = new Customer("Alicja");
 
         carManager.subscribe(customer1);
         carManager.subscribe(customer2);
 
-        var audi = ElectricCarFactory.CreateCar(1, "Tesla", "X",
+        var audi = ElectricCarFactory.CreateCar(1, "Audi", "X",
                 new Date(), "Red", "", new ElectricFuel(), carEquipment1,1000, 200);
 
-        var peugeot = CombustionCarFactory.CreateCar(2, "BMW", "M3",
+        var peugeot = CombustionCarFactory.CreateCar(2, "Peugeot", "M3",
                 new Date(), "Black", "", new PetrolFuel(), carEquipment2,60, 300);
         
         carManager.addCar(audi);
         carManager.removeCar(audi);
         carManager.addCar(peugeot);
 
+        System.out.println("STAN");
+        Rent new_rent = new RentBuilder(tesla, "Adam Adamski", new Date())
+                        .withEndDate(new Date())
+                        .build();
+        new_rent.rent();
+        new_rent.rent();
+        new_rent.returnCar();
+        new_rent.returnCar();
+        
+        System.out.println("STRATEGIA");
+        NotificationService notificationService = new NotificationService(new OrderShippedNotificationStrategy());
+        notificationService.notifyCustomer("Masz 7 dni na zwrócenie zamówienia.");
+
+        notificationService.setNotificationStrategy(new PaymentReminderNotificationStrategy());
+        notificationService.notifyCustomer("Pozostało 14 dni na zapłatę.");
+
+        notificationService.setNotificationStrategy(new RandomMessageNotificationStrategy());
+        notificationService.notifyCustomer("Życzymy miłego korzystania.");
+        
+        System.out.println("TEMPLATE");
+        CarManagementProcess electricCarProcess = new ElectricCarManagement();
+        electricCarProcess.manageCar();
+        CarManagementProcess combustionCarProcess = new CombustionCarManagement();
+        combustionCarProcess.manageCar();
     }
 
 }

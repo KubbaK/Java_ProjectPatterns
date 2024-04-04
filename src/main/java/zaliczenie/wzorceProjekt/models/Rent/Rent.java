@@ -8,6 +8,8 @@ import zaliczenie.wzorceProjekt.services.CarPriceCalculator;
 import zaliczenie.wzorceProjekt.services.CombustionCarPriceAdapter;
 import zaliczenie.wzorceProjekt.services.ElectricCarPriceAdapter;
 import zaliczenie.wzorceProjekt.services.ICarPriceService;
+import zaliczenie.wzorceProjekt.state.FreeState;
+import zaliczenie.wzorceProjekt.state.State;
 
 public class Rent {
     private Long id;
@@ -16,6 +18,7 @@ public class Rent {
     private Date startDate;
     private Date endDate;
     private float price;
+    private State state;
 
     public Long getId() {
         return id;
@@ -69,4 +72,21 @@ public class Rent {
 
     public void setPrice(float price) { this.price = price; }
 
+    //Tydzień 6, Wzorzec State, modyfikuje działanie metody rent w zależności od obecnego stanu 
+    public Rent() {
+        this.state = new FreeState(this);
+    }
+
+    public void rent() {
+        state.rent();
+    }
+
+    public void returnCar() {
+        state.returnCar();
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+     // Koniec Tydzień 6, Wzorzec State
 }
