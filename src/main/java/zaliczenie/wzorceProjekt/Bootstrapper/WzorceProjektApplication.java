@@ -1,5 +1,9 @@
 package zaliczenie.wzorceProjekt.Bootstrapper;
 
+import zaliczenie.wzorceProjekt.iterators.CarCollectionImpl;
+import zaliczenie.wzorceProjekt.iterators.CarIteratorImpl;
+import zaliczenie.wzorceProjekt.iterators.Collection;
+import zaliczenie.wzorceProjekt.iterators.Iterator;
 import zaliczenie.wzorceProjekt.models.Rent.CompositeRent;
 import zaliczenie.wzorceProjekt.models.Rent.SingleRent;
 import zaliczenie.wzorceProjekt.models.Rent.Rent;
@@ -138,6 +142,20 @@ public class WzorceProjektApplication {
 
         PaymentMediator paymentMediator = new PaymentMediator(invoiceDecorator, receiptDecorator);
         paymentMediator.processPayment(rents);
+
+        System.out.println("ITERATOR");
+        Collection<Car> carCollection = new CarCollectionImpl();
+        carCollection.addCar(tesla);
+        carCollection.addCar(bmw);
+        carCollection.addCar(tesla2);
+        Iterator<Car> carIterator = carCollection.iterator();
+        while (carIterator.hasNext()) {
+                var tempCar = carIterator.next();
+                System.out.println(tempCar.getBrand() + " " + tempCar.getModel());
+        }
+
+
+
     }
 
 }
