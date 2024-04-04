@@ -72,6 +72,7 @@ public class Rent {
 
     public void setPrice(float price) { this.price = price; }
 
+    //Tydzień 6, Wzorzec State, modyfikuje działanie metody rent w zależności od obecnego stanu 
     public Rent() {
         this.state = new FreeState(this);
     }
@@ -87,5 +88,5 @@ public class Rent {
     public void setState(State state) {
         this.state = state;
     }
-    
+     // Koniec Tydzień 6, Wzorzec Rent
 }
