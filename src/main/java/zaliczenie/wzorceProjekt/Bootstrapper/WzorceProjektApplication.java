@@ -154,7 +154,22 @@ public class WzorceProjektApplication {
                 System.out.println(tempCar.getBrand() + " " + tempCar.getModel());
         }
 
+        System.out.println("ITERATOR");
+        Customer customer1 = new Customer("Adam");
+        Customer customer2 = new Customer("Alicja");
 
+        carManager.subscribe(customer1);
+        carManager.subscribe(customer2);
+
+        var audi = ElectricCarFactory.CreateCar(1, "Tesla", "X",
+                new Date(), "Red", "", new ElectricFuel(), carEquipment1,1000, 200);
+
+        var peugeot = CombustionCarFactory.CreateCar(2, "BMW", "M3",
+                new Date(), "Black", "", new PetrolFuel(), carEquipment2,60, 300);
+        
+        carManager.addCar(audi);
+        carManager.removeCar(audi);
+        carManager.addCar(peugeot);
 
     }
 
