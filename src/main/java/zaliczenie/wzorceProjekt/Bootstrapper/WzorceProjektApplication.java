@@ -228,8 +228,7 @@ public class WzorceProjektApplication {
         totalPriceExpression.interpret(context);
         rentDetailsExpression.interpret(context);
 
-
-        System.out.println(context);
+        System.out.println(context.mapToOutput());
 
         String input = "transaction:123456;totalprice:1000;rentDetails:Tesla-2-200,BMW-4-800";
         ReceiptContext context2 = new ReceiptContext();
