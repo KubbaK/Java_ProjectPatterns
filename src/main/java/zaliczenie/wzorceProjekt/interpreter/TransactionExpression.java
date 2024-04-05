@@ -1,7 +1,5 @@
 package zaliczenie.wzorceProjekt.interpreter;
 
-import java.util.Map;
-
 public class TransactionExpression implements IExpression {
     private String transactionVariable;
 

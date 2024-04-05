@@ -1,7 +1,6 @@
 package zaliczenie.wzorceProjekt.interpreter;
 
-import java.util.Map;
-
+//Tydzień 5, Początek Interpreter, który intepretuje kontekst paragonu
 public class TotalPriceExpression implements IExpression {
     private String totalPriceVariable;
 
@@ -15,3 +14,4 @@ public class TotalPriceExpression implements IExpression {
         System.out.println("Cena końcowa: " + context.getVariableValue(totalPriceVariable));
     }
 }
+//Tydzień 5, Koniec Interpretera

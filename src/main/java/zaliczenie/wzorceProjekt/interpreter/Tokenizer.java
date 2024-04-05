@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+//Tydzień 5, Początek Interpreter, który intepretuje kontekst paragonu
 public class Tokenizer {
     public Map<String, Object> tokenize(String input) {
         Map<String, Object> tokens = new HashMap<>();
@@ -76,3 +76,4 @@ public class Tokenizer {
         return inputBuilder.toString();
     }
 }
+//Tydzień 5, Koniec Interpretera

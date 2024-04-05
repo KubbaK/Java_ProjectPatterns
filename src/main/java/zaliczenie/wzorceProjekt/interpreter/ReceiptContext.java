@@ -6,8 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-// Klasa kontekstu, przechowująca zmienne i ich wartości
+//Tydzień 5, Początek Interpreter, który intepretuje paragon
 public class ReceiptContext {
     private Map<String, Object> variables;
 
@@ -55,3 +54,4 @@ public class ReceiptContext {
         return tokenizer.mapToOutput(this);
     }
 }
+//Tydzień 5, koniec Interpretera

@@ -2,8 +2,7 @@ package zaliczenie.wzorceProjekt.interpreter;
 
 import java.util.List;
 import java.util.Map;
-
-// Konkretna implementacja interfejsu Interpretera - Parsowanie szczegółów produktów
+//Tydzień 5, Początek Interpreter, który intepretuje paragon
 public class RentDetailsExpression implements IExpression {
     private String rentDetailsVariable;
 
@@ -22,3 +21,4 @@ public class RentDetailsExpression implements IExpression {
         }
     }
 }
+//Tydzień 5, koniec Interpretera
