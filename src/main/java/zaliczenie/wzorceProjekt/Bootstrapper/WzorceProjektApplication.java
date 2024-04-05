@@ -1,5 +1,6 @@
 package zaliczenie.wzorceProjekt.Bootstrapper;
 
+import zaliczenie.wzorceProjekt.interpreter.*;
 import zaliczenie.wzorceProjekt.iterators.CarCollectionImpl;
 import zaliczenie.wzorceProjekt.iterators.CarIteratorImpl;
 import zaliczenie.wzorceProjekt.iterators.Collection;
@@ -23,9 +24,7 @@ import zaliczenie.wzorceProjekt.services.CarAvailabilityManager;
 import zaliczenie.wzorceProjekt.services.ICarsService;
 import zaliczenie.wzorceProjekt.services.ProxyCarsService;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import zaliczenie.wzorceProjekt.builders.RentBuilder;
 import zaliczenie.wzorceProjekt.decorators.InvoiceDecorator;
@@ -213,6 +212,31 @@ public class WzorceProjektApplication {
         bmw.Accept(tankCar);
         bmw.Accept(repairCar);
 
-    }
 
+        ReceiptContext context = new ReceiptContext();
+        context.setVariable("transaction", "123456");
+        context.setVariable("totalPrice", 1200.0);
+
+        context.AddCar(tesla, 3, tesla.getPrice());
+        context.AddCar(bmw, 2, bmw.getPrice());
+
+        IExpression transactionExpression = new TransactionExpression("transaction");
+        IExpression totalPriceExpression = new TotalPriceExpression("totalPrice");
+        IExpression rentDetailsExpression = new RentDetailsExpression("rentDetails");
+
+        transactionExpression.interpret(context);
+        totalPriceExpression.interpret(context);
+        rentDetailsExpression.interpret(context);
+
+
+        System.out.println(context);
+
+        String input = "transaction:123456;totalprice:1000;rentDetails:Tesla-2-200,BMW-4-800";
+        ReceiptContext context2 = new ReceiptContext();
+        context2.mapFromInput(input);
+        transactionExpression.interpret(context2);
+        totalPriceExpression.interpret(context2);
+        rentDetailsExpression.interpret(context2);
+
+    }
 }
