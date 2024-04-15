@@ -2,6 +2,8 @@ package zaliczenie.wzorceProjekt.commands;
 
 import java.util.Stack;
 
+// Tydzień 7, Zasada pojedynczej odpowiedzialności
+// Klasa jest odpowiedzialna za zarządzanie historią poleceń (RentCommand).
 public class RentCommandHistory {
     private Stack<RentCommand> history = new Stack<>();
 
@@ -21,3 +23,4 @@ public class RentCommandHistory {
         return history.isEmpty();
     }
 }
+//Koniec Tydzień 7, Zasada pojedynczej odpowiedzialności
