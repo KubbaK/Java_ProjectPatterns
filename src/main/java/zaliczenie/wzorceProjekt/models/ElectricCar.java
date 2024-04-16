@@ -1,5 +1,6 @@
 package zaliczenie.wzorceProjekt.models;
 
+import zaliczenie.wzorceProjekt.models.CarType.CarType;
 import zaliczenie.wzorceProjekt.models.Fuel.IFuelType;
 import zaliczenie.wzorceProjekt.visitor.ICarComponent;
 import zaliczenie.wzorceProjekt.visitor.ICarVisitor;
@@ -10,9 +11,9 @@ public class ElectricCar extends Car implements ICarComponent {
     private float batteryCapacity;
 
     public ElectricCar(int id, String brand, String model, Date production_date, String color,
-                       String photo_url, IFuelType fuel_type, CarEquipment carEquipment, float batteryCapacity, float price)
+                       String photo_url, IFuelType fuel_type, CarEquipment carEquipment, CarType carType, float batteryCapacity, float price)
     {
-        super(id, brand, model, production_date, color, photo_url, fuel_type, carEquipment, price);
+        super(id, brand, model, production_date, color, photo_url, fuel_type, carEquipment, carType, price);
         setBatteryCapacity(batteryCapacity);
     }
 
