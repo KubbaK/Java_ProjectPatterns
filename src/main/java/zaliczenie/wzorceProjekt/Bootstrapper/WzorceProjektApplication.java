@@ -5,6 +5,9 @@ import zaliczenie.wzorceProjekt.iterators.CarCollectionImpl;
 import zaliczenie.wzorceProjekt.iterators.CarIteratorImpl;
 import zaliczenie.wzorceProjekt.iterators.Collection;
 import zaliczenie.wzorceProjekt.iterators.Iterator;
+import zaliczenie.wzorceProjekt.models.CarType.Hatchback;
+import zaliczenie.wzorceProjekt.models.CarType.Kombi;
+import zaliczenie.wzorceProjekt.models.CarType.Sedan;
 import zaliczenie.wzorceProjekt.models.Rent.CompositeRent;
 import zaliczenie.wzorceProjekt.models.Rent.SingleRent;
 import zaliczenie.wzorceProjekt.models.Rent.Rent;
@@ -50,16 +53,20 @@ public class WzorceProjektApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(WzorceProjektApplication.class, args);
 
+        var carTypeKombi = new Kombi();
+        var carTypeSedan = new Sedan();
+        var carTypeHatchback = new Hatchback();
+
         CarAvailabilityManager carManager = CarAvailabilityManager.getInstance();
 
         var carEquipment1 = CarEquipmentFactory.getCarrEquipment("prestige", true, true, true);
         var carEquipment2 = CarEquipmentFactory.getCarrEquipment("prestige", true, true, true);
 
         var tesla = ElectricCarFactory.CreateCar(1, "Tesla", "X",
-                new Date(), "Red", "", new ElectricFuel(), carEquipment1,1000, 200);
+                new Date(), "Red", "", new ElectricFuel(), carEquipment1, carTypeHatchback,1000, 200);
 
         var bmw = CombustionCarFactory.CreateCar(2, "BMW", "M3",
-                new Date(), "Black", "", new PetrolFuel(), carEquipment2,60, 300);
+                new Date(), "Black", "", new PetrolFuel(), carEquipment2, carTypeSedan,60, 300);
 
         var tesla2 = tesla.DeepClone(tesla);
         tesla2.setModel("S");
@@ -170,10 +177,10 @@ public class WzorceProjektApplication {
         carManager.subscribe(customer2);
 
         var audi = ElectricCarFactory.CreateCar(1, "Audi", "X",
-                new Date(), "Red", "", new ElectricFuel(), carEquipment1,1000, 200);
+                new Date(), "Red", "", new ElectricFuel(), carEquipment1, carTypeHatchback,1000, 200);
 
         var peugeot = CombustionCarFactory.CreateCar(2, "Peugeot", "M3",
-                new Date(), "Black", "", new PetrolFuel(), carEquipment2,60, 300);
+                new Date(), "Black", "", new PetrolFuel(), carEquipment2, carTypeKombi,60, 300);
         
         carManager.addCar(audi);
         carManager.removeCar(audi);

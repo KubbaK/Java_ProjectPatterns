@@ -1,9 +1,11 @@
 package zaliczenie.wzorceProjekt.models;
 
+import zaliczenie.wzorceProjekt.models.CarType.CarType;
 import zaliczenie.wzorceProjekt.models.Fuel.IFuelType;
 
 import java.util.Date;
 
+//Tydzień 8, Liskov
 public abstract class Car {
 
     private int id;
@@ -14,11 +16,12 @@ public abstract class Car {
     private String photo_url;
     private IFuelType fuel_type;
     private CarEquipment carEquipment;
+    private CarType carType;
     private float price;
     public Car() {
     }
     
-    public Car(int id, String brand, String model, Date production_date, String color, String photo_url, IFuelType fuel_type, CarEquipment carEquipment, float price) {
+    public Car(int id, String brand, String model, Date production_date, String color, String photo_url, IFuelType fuel_type, CarEquipment carEquipment, CarType carType, float price) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -27,6 +30,7 @@ public abstract class Car {
         this.photo_url = photo_url;
         this.fuel_type = fuel_type;
         this.carEquipment = carEquipment;
+        this.carType = carType;
         this.price = price;
     }
 
@@ -86,6 +90,7 @@ public abstract class Car {
         copyCar.production_date = car.production_date;
         copyCar.fuel_type = car.fuel_type;
         copyCar.carEquipment = car.carEquipment;
+        copyCar.carType = car.carType;
         copyCar.price = car.price;
         return car;
     }
@@ -113,3 +118,4 @@ public abstract class Car {
     }
     //Koniec tydzien 2, Bridge
 }
+//Koniec tydzień 8, Liskov

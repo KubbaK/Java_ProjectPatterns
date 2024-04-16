@@ -1,5 +1,6 @@
 package zaliczenie.wzorceProjekt.models;
 
+import zaliczenie.wzorceProjekt.models.CarType.CarType;
 import zaliczenie.wzorceProjekt.models.Fuel.IFuelType;
 import zaliczenie.wzorceProjekt.visitor.ICarComponent;
 import zaliczenie.wzorceProjekt.visitor.ICarVisitor;
@@ -10,8 +11,8 @@ public class CombustionCar extends Car implements ICarComponent {
     private float fuelTankCapacity;
 
     public CombustionCar(int id, String brand, String model, Date production_date,
-                         String color, String photo_url, IFuelType fuel_type, CarEquipment carEquipment, float fuelTankCapacity, float price){
-        super(id, brand, model, production_date, color, photo_url, fuel_type, carEquipment, price);
+                         String color, String photo_url, IFuelType fuel_type, CarEquipment carEquipment, CarType carType, float fuelTankCapacity, float price){
+        super(id, brand, model, production_date, color, photo_url, fuel_type, carEquipment, carType, price);
         setFuelTankCapacity(fuelTankCapacity);
     }
 
