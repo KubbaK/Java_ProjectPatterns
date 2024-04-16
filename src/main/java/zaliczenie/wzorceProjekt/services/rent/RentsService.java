@@ -15,7 +15,7 @@ import zaliczenie.wzorceProjekt.models.Rent.Rent;
 import zaliczenie.wzorceProjekt.repositories.CarsRepository;
 import zaliczenie.wzorceProjekt.repositories.RentsRepository;
 
-public class RentsService {
+public class RentsService extends RentServiceBase{
     @Autowired
     private RentCommandHistory rentCommandHistory;
     @Autowired
@@ -23,7 +23,7 @@ public class RentsService {
     @Autowired
     private CarsRepository carsRepository;
 
-
+    @Override
     public ResponseEntity<String> createRent(RentCreateDto rentDto) {
         Car car = carsRepository.findById(rentDto.carId).orElseThrow(() -> new CarNotFoundException(rentDto.carId));
         var startDate = rentDto.startDate;
@@ -36,6 +36,7 @@ public class RentsService {
         return ResponseEntity.ok("Rent created successfully.");
     }
 
+    @Override
     public ResponseEntity<String> removeRent(int id) {
         Rent rent = rentsRepository.findById(id).orElseThrow(() -> new RentNotFoundException(id));
 
@@ -52,7 +53,8 @@ public class RentsService {
         }
     }
 
-    private void undo() {
+    @Override
+    public void undo() {
         if (rentCommandHistory.isEmpty()) return;
 
         var command = rentCommandHistory.pop();
