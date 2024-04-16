@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import zaliczenie.wzorceProjekt.dtos.RentCreateDto;
+import zaliczenie.wzorceProjekt.services.rent.RentServiceBase;
 import zaliczenie.wzorceProjekt.services.rent.RentsService;
 
 @Controller
@@ -12,7 +13,7 @@ import zaliczenie.wzorceProjekt.services.rent.RentsService;
 public class RentsController {
 
     @Autowired
-    RentsService rentsService;
+    RentServiceBase rentsService;
 
     @PostMapping
     public ResponseEntity<String> createRent(@RequestBody RentCreateDto rent) {
