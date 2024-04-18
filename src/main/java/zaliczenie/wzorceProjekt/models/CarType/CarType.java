@@ -1,5 +1,6 @@
 package zaliczenie.wzorceProjekt.models.CarType;
 
+//Tydzień 7, Otwarte - zamknięte poprzez abstrakcję
 //Tydzień 8, Liskov
 public abstract class CarType {
     protected int numberOfSeats;
@@ -13,5 +14,5 @@ public abstract class CarType {
     public abstract String getInfo();
 }
 //Koniec tydzień 8, Liskov
-
+//Koniec tydzień 7, Otwarte - zamknięte
 
