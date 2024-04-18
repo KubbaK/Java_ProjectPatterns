@@ -34,10 +34,14 @@ import zaliczenie.wzorceProjekt.decorators.InvoiceDecorator;
 import zaliczenie.wzorceProjekt.decorators.ReceiptDecorator;
 import zaliczenie.wzorceProjekt.facade.CarRentFacade;
 import zaliczenie.wzorceProjekt.facade.CarRentFacadeImpl;
+import zaliczenie.wzorceProjekt.funcProgramming.CarFilter;
+import zaliczenie.wzorceProjekt.funcProgramming.RentFeeCalculator;
+import zaliczenie.wzorceProjekt.funcProgramming.RentInfo;
 import zaliczenie.wzorceProjekt.mediators.PaymentMediator;
 import zaliczenie.wzorceProjekt.models.Payment.BasePayment;
 import zaliczenie.wzorceProjekt.models.Payment.Payment;
 import zaliczenie.wzorceProjekt.services.NotificationService;
+import zaliczenie.wzorceProjekt.services.rent.FuncRentService;
 import zaliczenie.wzorceProjekt.strategy.OrderShippedNotificationStrategy;
 import zaliczenie.wzorceProjekt.strategy.PaymentReminderNotificationStrategy;
 import zaliczenie.wzorceProjekt.strategy.RandomMessageNotificationStrategy;
@@ -243,6 +247,38 @@ public class WzorceProjektApplication {
         transactionExpression.interpret(context2);
         totalPriceExpression.interpret(context2);
         rentDetailsExpression.interpret(context2);
+        
+        
+        System.out.println("Funkcyjne programowanie");
+        RentFeeCalculator feeCalculator = (durationInDays, baseRate) -> durationInDays * baseRate;
+        CarFilter ecoCarFilter = car -> car.isEco();
+        RentInfo infoPrinter = rent -> {
+            System.out.println("Rental ID: " + rent.getId());
+            System.out.println("Customer: " + rent.getCustomerName());
+        };
 
+        double fee = feeCalculator.calculateFee(7, 50);
+        System.out.println("Rental fee: " + fee);
+
+        boolean isEcoCar = ecoCarFilter.filter(bmw);
+        System.out.println("Is eco car? " + isEcoCar);
+
+        infoPrinter.printInfo(rent1);
+        
+        System.out.println("Strumieniowe przetwarzanie kolekcji");
+        FuncRentService funcRentService = new FuncRentService(carManager);
+
+        List<Car> allAvailableCars = funcRentService.getAllAvailableCars();
+        System.out.println("All available cars:");
+        allAvailableCars.forEach(car -> System.out.println(car.getModel()));
+
+        double totalPrice = funcRentService.getTotalPriceOfAvailableCars();
+        System.out.println("\nTotal price of available cars: " + totalPrice);
+
+ 
+        CarFilter carFilter = car -> car.getPrice() < 50000; 
+        List<Car> carsByCriteria = funcRentService.getCarsByCriteria(carFilter);
+        System.out.println("\nCars by criteria (price < 50000):");
+        carsByCriteria.forEach(car -> System.out.println(car.getModel()));
     }
 }
