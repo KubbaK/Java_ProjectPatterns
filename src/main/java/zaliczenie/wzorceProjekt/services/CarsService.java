@@ -6,6 +6,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import zaliczenie.wzorceProjekt.models.Car;
+import zaliczenie.wzorceProjekt.models.ElectricCar;
+import zaliczenie.wzorceProjekt.models.Fuel.DieselFuel;
+import zaliczenie.wzorceProjekt.models.Fuel.ElectricFuel;
+import zaliczenie.wzorceProjekt.models.Fuel.PetrolFuel;
 import zaliczenie.wzorceProjekt.repositories.CarsRepository;
 
 import java.util.ArrayList;
@@ -38,4 +42,21 @@ public class CarsService implements ICarsService {
         Optional<Car> carOptional = carsRepository.findById(id);
         return carOptional.orElse(null);
     }
+
+    // Not used
+    // Tydzień 7, Otwarte - zamknięte poprzez sterowanie danymi
+    public boolean carIsEco(Car car) {
+        boolean result = false;
+
+        if (car.getFuel_type() instanceof DieselFuel) {
+            result = false;
+        } else if (car.getFuel_type() instanceof PetrolFuel) {
+            result = false;
+        } else if (car.getFuel_type() instanceof ElectricFuel) {
+            result = true;
+        }
+
+        return result;
+    }
+    //Koniec Tydzień 7, Otwarte - zamknięte poprzez sterowanie danymi
 }

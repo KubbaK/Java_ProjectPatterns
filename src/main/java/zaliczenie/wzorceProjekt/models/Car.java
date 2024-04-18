@@ -74,6 +74,10 @@ public abstract class Car {
         this.color = color;
     }
 
+    public CarType getCarType() {
+        return carType;
+    }
+
     public String getPhoto_url() {
         return photo_url;
     }
