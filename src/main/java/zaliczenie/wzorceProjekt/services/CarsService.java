@@ -16,10 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+
 public class CarsService implements ICarsService {
 
-    @Autowired
     private CarsRepository carsRepository;
 
     @Override

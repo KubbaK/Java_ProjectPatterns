@@ -6,7 +6,7 @@ import zaliczenie.wzorceProjekt.repositories.RentsRepository;
 
 //Tydzień 8, Odwrócenie zależności
 public abstract class RentCommand {
-    @Autowired
+
     protected RentsRepository rentsRepository;
     public Rent rent;
 

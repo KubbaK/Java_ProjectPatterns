@@ -8,12 +8,11 @@ import zaliczenie.wzorceProjekt.dtos.RentCreateDto;
 import zaliczenie.wzorceProjekt.services.rent.RentServiceBase;
 import zaliczenie.wzorceProjekt.services.rent.RentsService;
 
-@Controller
+@RestController
 @RequestMapping("api/v1/rents")
 public class RentsController {
 
-    @Autowired
-    RentServiceBase rentsService;
+    RentServiceBase rentsService = new RentsService();
 
     @PostMapping
     public ResponseEntity<String> createRent(@RequestBody RentCreateDto rent) {

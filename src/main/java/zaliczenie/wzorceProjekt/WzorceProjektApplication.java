@@ -1,4 +1,4 @@
-package zaliczenie.wzorceProjekt.Bootstrapper;
+package zaliczenie.wzorceProjekt;
 
 import zaliczenie.wzorceProjekt.interpreter.*;
 import zaliczenie.wzorceProjekt.iterators.CarCollectionImpl;

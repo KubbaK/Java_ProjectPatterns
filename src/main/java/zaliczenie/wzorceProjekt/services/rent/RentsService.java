@@ -16,11 +16,11 @@ import zaliczenie.wzorceProjekt.repositories.CarsRepository;
 import zaliczenie.wzorceProjekt.repositories.RentsRepository;
 
 public class RentsService extends RentServiceBase{
-    @Autowired
+
     private RentCommandHistory rentCommandHistory;
-    @Autowired
+
     private RentsRepository rentsRepository;
-    @Autowired
+
     private CarsRepository carsRepository;
 
     @Override
