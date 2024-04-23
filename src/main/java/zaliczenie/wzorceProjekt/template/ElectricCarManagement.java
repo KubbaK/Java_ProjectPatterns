@@ -5,12 +5,15 @@
 package zaliczenie.wzorceProjekt.template;
 
 import org.springframework.stereotype.Component;
+import zaliczenie.wzorceProjekt.aspects.Loggable;
+import zaliczenie.wzorceProjekt.models.ElectricCar;
 
 @Component
 public class ElectricCarManagement extends CarManagementProcess {
     @Override
     protected void reserveVehicle() {
-         System.out.println("Rezerwowanie samochodu elektrycznego");
+
+         System.out.println("Rezerwowanie samochodu elektrycznego ");
     }
 
     @Override

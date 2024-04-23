@@ -79,7 +79,6 @@ public class Rent {
         this.state = new FreeState(this);
     }
 
-    @Loggable
     public void rent() {
         state.rent();
     }

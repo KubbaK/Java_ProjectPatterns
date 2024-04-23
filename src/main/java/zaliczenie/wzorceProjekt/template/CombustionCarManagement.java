@@ -5,6 +5,7 @@
 package zaliczenie.wzorceProjekt.template;
 
 import org.springframework.stereotype.Component;
+import zaliczenie.wzorceProjekt.aspects.Loggable;
 
 @Component
 public class CombustionCarManagement extends CarManagementProcess {
