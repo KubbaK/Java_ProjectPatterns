@@ -4,6 +4,9 @@
  */
 package zaliczenie.wzorceProjekt.template;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ElectricCarManagement extends CarManagementProcess {
     @Override
     protected void reserveVehicle() {

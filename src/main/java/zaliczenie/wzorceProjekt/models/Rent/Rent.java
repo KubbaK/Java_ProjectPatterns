@@ -1,6 +1,8 @@
 package zaliczenie.wzorceProjekt.models.Rent;
 
 import java.util.Date;
+
+import zaliczenie.wzorceProjekt.aspects.Loggable;
 import zaliczenie.wzorceProjekt.models.Car;
 import zaliczenie.wzorceProjekt.models.CombustionCar;
 import zaliczenie.wzorceProjekt.models.ElectricCar;
@@ -77,6 +79,7 @@ public class Rent {
         this.state = new FreeState(this);
     }
 
+    @Loggable
     public void rent() {
         state.rent();
     }

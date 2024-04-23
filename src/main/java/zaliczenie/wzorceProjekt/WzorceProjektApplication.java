@@ -1,5 +1,7 @@
 package zaliczenie.wzorceProjekt;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ImportResource;
 import zaliczenie.wzorceProjekt.interpreter.*;
 import zaliczenie.wzorceProjekt.iterators.CarCollectionImpl;
 import zaliczenie.wzorceProjekt.iterators.CarIteratorImpl;
@@ -52,10 +54,11 @@ import zaliczenie.wzorceProjekt.visitor.CarRepairVisitor;
 import zaliczenie.wzorceProjekt.visitor.CarTankVisitor;
 
 @SpringBootApplication
+//@ImportResource("classpath:config.xml")
 public class WzorceProjektApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(WzorceProjektApplication.class, args);
+       ApplicationContext applicationContext = SpringApplication.run(WzorceProjektApplication.class, args);
 
         var carTypeKombi = new Kombi();
         var carTypeSedan = new Sedan();
@@ -210,9 +213,9 @@ public class WzorceProjektApplication {
         notificationService.notifyCustomer("Życzymy miłego korzystania.");
         
         System.out.println("TEMPLATE");
-        CarManagementProcess electricCarProcess = new ElectricCarManagement();
+        CarManagementProcess electricCarProcess = applicationContext.getBean(ElectricCarManagement.class); //new ElectricCarManagement();
         electricCarProcess.manageCar();
-        CarManagementProcess combustionCarProcess = new CombustionCarManagement();
+        CarManagementProcess combustionCarProcess = applicationContext.getBean(CombustionCarManagement.class);  new CombustionCarManagement();
         combustionCarProcess.manageCar();
 
         var repairCar = new CarRepairVisitor();
