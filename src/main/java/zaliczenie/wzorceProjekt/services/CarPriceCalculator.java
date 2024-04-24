@@ -13,7 +13,6 @@ public class CarPriceCalculator implements ICarPriceService {
     }
 
     // Not used
-    //Tydzień 7, Otwarte - zamknięte poprzez sterowanie danymi
     public float calculatePrice(Car car)
     {
         float price = 0;
@@ -26,10 +25,8 @@ public class CarPriceCalculator implements ICarPriceService {
 
         return price;
     }
-    //Koniec Tydzień 7, Otwarte - zamknięte poprzez sterowanie danymi
 
     // Not used
-    // Tydzień 7, Otwarte - zamknięte poprzez sterowanie danymi
     public float calculatePriceForType(Car car) {
         float price = 0;
 
@@ -43,5 +40,5 @@ public class CarPriceCalculator implements ICarPriceService {
 
         return price;
     }
-    //Koniec Tydzień 7, Otwarte - zamknięte poprzez sterowanie danymi
+
 }

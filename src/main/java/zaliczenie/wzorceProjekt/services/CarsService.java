@@ -19,6 +19,8 @@ import java.util.Optional;
 @Service
 public class CarsService implements ICarsService {
 
+    private ArrayList<Car> carsToRepair;
+
     private CarsRepository carsRepository;
 
     @Override
@@ -41,6 +43,22 @@ public class CarsService implements ICarsService {
         Optional<Car> carOptional = carsRepository.findById(id);
         return carOptional.orElse(null);
     }
+
+
+    // Dodawanie samochodu do listy samochodow do naprawy
+    public void addCar(Car car) {
+        carsToRepair.add(car);
+    }
+
+    //Tydzień 7, Otwarte - zamknięte poprzez sterowanie danymi. Mamy kolekcję różnych obiektów na których wykonujemy określoną operację.
+    // W tej liście mogą być różne obiekty np. ElectricCar, CombustionCar, a każdy z nich ma inną implementację metody repair,
+    // więc działanie metody repairAllCars będzie zależne od tego jakie obiekty mamy w tej liście.
+    public void repairCars() {
+        for (Car car : carsToRepair) {
+            car.repair();
+        }
+    }
+    // Koniec Tydzień 7, Otwarte - zamknięte
 
     // Not used
     public boolean carIsEco(Car car) {
