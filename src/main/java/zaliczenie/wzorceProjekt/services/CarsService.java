@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-
+@Service
 public class CarsService implements ICarsService {
 
     private CarsRepository carsRepository;
@@ -43,7 +43,6 @@ public class CarsService implements ICarsService {
     }
 
     // Not used
-    // Tydzień 7, Otwarte - zamknięte poprzez sterowanie danymi
     public boolean carIsEco(Car car) {
         boolean result = false;
 
@@ -57,5 +56,4 @@ public class CarsService implements ICarsService {
 
         return result;
     }
-    //Koniec Tydzień 7, Otwarte - zamknięte poprzez sterowanie danymi
 }
