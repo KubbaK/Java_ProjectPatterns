@@ -1,5 +1,6 @@
 package zaliczenie.wzorceProjekt.services;
 
+import org.springframework.stereotype.Service;
 import zaliczenie.wzorceProjekt.models.Car;
 
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.Map;
 
 // Tydzień 7, Zasada pojedynczej odpowiedzialności
 // Ta klasa jest odpowiedzialna wyłącznie za zarządzanie pamięcią podręczną dla samochodów. Odpowiada za przechowywanie i aktualizację danych w pamięci podręcznej.
+@Service
 public class CarsCacheManagerImpl implements CarsCacheManager{
     private List<Car> ecoCarsCache = new ArrayList<>();
     private Map<Integer, Car> carsDictionaryCache = new HashMap<>();

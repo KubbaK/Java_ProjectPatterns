@@ -4,7 +4,7 @@ import java.util.Stack;
 
 // Tydzień 7, Zasada pojedynczej odpowiedzialności
 // Klasa jest odpowiedzialna za zarządzanie historią poleceń (RentCommand).
-public class RentCommandHistory {
+public class RentCommandHistory implements  IRentCommandHistory{
     private Stack<RentCommand> history = new Stack<>();
 
     public void push(RentCommand command) {

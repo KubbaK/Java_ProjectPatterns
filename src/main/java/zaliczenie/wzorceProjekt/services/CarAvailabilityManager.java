@@ -64,12 +64,15 @@ public class CarAvailabilityManager implements Subject{
         observers.remove(observer);
     }
 
+
+    //Tydzień 7, Otwarte - zamknięte poprzez sterowanie danymi. Mamy kolekcję różnych obiektów na których wykonujemy określoną operację w określonej kolejności
     @Override
     public void notifyObservers() {
         for (Observer observer : observers) {
             observer.update();
         }
     }
+    // Koniec Tydzień 7, Otwarte - zamknięte
     // Koniec Tydzień 6, Wzorzec Obserwator
 }
 //Koniec Tydzień 1, Wzorzec Singleton

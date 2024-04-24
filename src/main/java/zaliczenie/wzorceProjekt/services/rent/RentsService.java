@@ -15,12 +15,16 @@ import zaliczenie.wzorceProjekt.models.Rent.Rent;
 import zaliczenie.wzorceProjekt.repositories.CarsRepository;
 import zaliczenie.wzorceProjekt.repositories.RentsRepository;
 
+//Tydzień 7, Otwarte - zamknięte poprzez abstrakcję. Umożliwia wstrzyknięcie różnych implementacji pod rentCommandHistory, rentsRepository, carsRepository przez co zmieni się działanie metod, bez ich edytowania.
 public class RentsService extends RentServiceBase{
 
+    @Autowired
     private RentCommandHistory rentCommandHistory;
 
+    @Autowired
     private RentsRepository rentsRepository;
 
+    @Autowired
     private CarsRepository carsRepository;
 
     @Override
@@ -64,3 +68,4 @@ public class RentsService extends RentServiceBase{
     }
     //Koniec tydzien 5, Command i Memento
 }
+//Koniec Tydzień 7, Otwarte - zamknięte poprzez abstrakcję.

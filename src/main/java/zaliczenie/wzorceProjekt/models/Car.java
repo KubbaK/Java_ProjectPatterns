@@ -121,5 +121,9 @@ public abstract class Car {
         this.price = price;
     }
     //Koniec tydzien 2, Bridge
+
+    public void repair(){
+
+    }
 }
 //Koniec tydzień 8, Liskov

@@ -1,10 +1,8 @@
 package zaliczenie.wzorceProjekt;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.ImportResource;
 import zaliczenie.wzorceProjekt.interpreter.*;
 import zaliczenie.wzorceProjekt.iterators.CarCollectionImpl;
-import zaliczenie.wzorceProjekt.iterators.CarIteratorImpl;
 import zaliczenie.wzorceProjekt.iterators.Collection;
 import zaliczenie.wzorceProjekt.iterators.Iterator;
 import zaliczenie.wzorceProjekt.models.CarType.Hatchback;
@@ -13,12 +11,8 @@ import zaliczenie.wzorceProjekt.models.CarType.Sedan;
 import zaliczenie.wzorceProjekt.models.Rent.CompositeRent;
 import zaliczenie.wzorceProjekt.models.Rent.SingleRent;
 import zaliczenie.wzorceProjekt.models.Rent.Rent;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
-import zaliczenie.wzorceProjekt.controllers.CarsController;
 import zaliczenie.wzorceProjekt.factories.CarEquipmentFactory;
 import zaliczenie.wzorceProjekt.factories.CombustionCarFactory;
 import zaliczenie.wzorceProjekt.factories.ElectricCarFactory;
@@ -26,8 +20,6 @@ import zaliczenie.wzorceProjekt.models.*;
 import zaliczenie.wzorceProjekt.models.Fuel.ElectricFuel;
 import zaliczenie.wzorceProjekt.models.Fuel.PetrolFuel;
 import zaliczenie.wzorceProjekt.services.CarAvailabilityManager;
-import zaliczenie.wzorceProjekt.services.ICarsService;
-import zaliczenie.wzorceProjekt.services.ProxyCarsService;
 
 import java.util.*;
 

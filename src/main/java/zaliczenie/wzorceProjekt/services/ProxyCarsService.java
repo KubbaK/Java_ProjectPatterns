@@ -1,22 +1,26 @@
 package zaliczenie.wzorceProjekt.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import zaliczenie.wzorceProjekt.models.Car;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 //Tydzień 4, Wzorzec Proxy, tworzy pełnomocnika który przechowuje dane w pamieci podręcznej
 //Tydzień 7, Zasada pojedynczej odpowiedzialności
 //Ta klasa jest odpowiedzialna wyłącznie za obsługę żądań proxy i delegowanie ich do właściwego serwisu. Odpowiada za komunikację z zewnętrznym światem i udostępnianie interfejsu do pobierania danych o samochodach.
+//Tydzień 7, Otwarte - zamknięte poprzez abstrakcję. Umożliwia wstrzyknięcie różnych implementacji pod carsService oraz cacheManager przez co można zmienić działanie metod bez ingerencji w nie.
 @Service
 @Primary
-public class ProxyCarsService implements ICarsService{
-    private CarsService carsService = new CarsService();
-    private CarsCacheManager cacheManager = new CarsCacheManagerImpl();
+public class ProxyCarsService implements IProxyCarsService {
+
+    @Autowired
+    private ICarsService carsService;
+
+    @Autowired
+    private CarsCacheManager cacheManager;
+
 
     @Override
     public List<Car> getAllEcoCars() {
@@ -40,3 +44,4 @@ public class ProxyCarsService implements ICarsService{
 }
 //Koniec Tydzień 4, Wzorzec Proxy
 //Koniec Tydzień 7, Zasada pojedynczej odpowiedzialności
+//Koniec Tydzień 7, Otwarte - zamknięte poprzez abstrakcję.

@@ -40,4 +40,9 @@ public class CombustionCar extends Car implements ICarComponent {
     public void Accept(ICarVisitor visitor) {
         visitor.VisitCombustionCar(this);
     }
+
+    @Override
+    public void repair(){
+
+    }
 }
