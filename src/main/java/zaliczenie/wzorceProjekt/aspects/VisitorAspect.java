@@ -6,7 +6,7 @@ import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 import zaliczenie.wzorceProjekt.models.CombustionCar;
 import zaliczenie.wzorceProjekt.models.ElectricCar;
-
+//Tydzień 11 - Programowanie aspektowe, logowanie wizytatora
 @Aspect
 @Component
 public class VisitorAspect {
@@ -20,3 +20,4 @@ public class VisitorAspect {
         System.out.println("Visiting combustion car");
     }
 }
+//Koniec tygodnia 11 - Programowanie aspektowe, logowanie wizytatora

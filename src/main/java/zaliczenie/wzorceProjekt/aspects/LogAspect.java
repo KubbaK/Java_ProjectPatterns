@@ -7,7 +7,7 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
-
+//Tydzień 11 - Programowanie aspektowe, adnotacja loggable
 @Aspect
 @Component
 public class LogAspect {
@@ -24,3 +24,4 @@ public class LogAspect {
     }
 
 }
+//Koniec tygodnia 11 - Programowanie aspektowe, logowanie wizytatora
