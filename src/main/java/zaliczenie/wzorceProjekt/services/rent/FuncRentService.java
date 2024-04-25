@@ -1,5 +1,6 @@
 package zaliczenie.wzorceProjekt.services.rent;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import zaliczenie.wzorceProjekt.funcProgramming.CarFilter;
@@ -15,8 +16,7 @@ public class FuncRentService {
     }
 
     public List<Car> getAllAvailableCars() {
-        return carAvailabilityManager.getAvailableCars().stream()
-                .collect(Collectors.toList());
+        return new ArrayList<>(carAvailabilityManager.getAvailableCars());
     }
 
     public double getTotalPriceOfAvailableCars() {
