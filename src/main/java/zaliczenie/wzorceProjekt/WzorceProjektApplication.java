@@ -46,7 +46,6 @@ import zaliczenie.wzorceProjekt.visitor.CarRepairVisitor;
 import zaliczenie.wzorceProjekt.visitor.CarTankVisitor;
 
 @SpringBootApplication
-//@ImportResource("classpath:config.xml")
 public class WzorceProjektApplication {
 
 	public static void main(String[] args) {
@@ -205,13 +204,16 @@ public class WzorceProjektApplication {
         notificationService.notifyCustomer("Życzymy miłego korzystania.");
         
         System.out.println("TEMPLATE");
-        CarManagementProcess electricCarProcess = applicationContext.getBean(ElectricCarManagement.class); //new ElectricCarManagement();
+        CarManagementProcess electricCarProcess = applicationContext.getBean(ElectricCarManagement.class);
         electricCarProcess.manageCar();
-        CarManagementProcess combustionCarProcess = applicationContext.getBean(CombustionCarManagement.class);  new CombustionCarManagement();
+        CarManagementProcess combustionCarProcess = applicationContext.getBean(CombustionCarManagement.class);
         combustionCarProcess.manageCar();
 
-        var repairCar = new CarRepairVisitor();
-        var tankCar = new CarTankVisitor();
+        System.out.println("VISITOR");
+        var repairCar = applicationContext.getBean(CarRepairVisitor.class);
+
+        var tankCar = applicationContext.getBean(CarTankVisitor.class);
+
 
         tesla.Accept(tankCar);
         tesla.Accept(repairCar);
