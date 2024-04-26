@@ -15,11 +15,11 @@ public class CarsCacheManagerImpl implements CarsCacheManager{
     private List<Car> ecoCarsCache = new ArrayList<>();
     private Map<Integer, Car> carsDictionaryCache = new HashMap<>();
 
-    public List<Car> getAllEcoCars() {
+    public List<Car> getAllCars() {
         return ecoCarsCache;
     }
 
-    public void setAllEcoCars(List<Car> ecoCars) {
+    public void setAllCars(List<Car> ecoCars) {
         this.ecoCarsCache = ecoCars;
     }
 

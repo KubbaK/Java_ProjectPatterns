@@ -24,10 +24,10 @@ public class ProxyCarsService implements IProxyCarsService {
 
     @Override
     public List<Car> getAllEcoCars() {
-        List<Car> ecoCars = cacheManager.getAllEcoCars();
+        List<Car> ecoCars = cacheManager.getAllCars();
         if (ecoCars.isEmpty()) {
             ecoCars = carsService.getAllEcoCars();
-            cacheManager.setAllEcoCars(ecoCars);
+            cacheManager.setAllCars(ecoCars);
         }
         return ecoCars;
     }
