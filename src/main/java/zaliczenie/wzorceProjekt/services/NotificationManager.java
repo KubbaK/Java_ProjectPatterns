@@ -23,4 +23,8 @@ public class NotificationManager {
         }
     }
     // Koniec Tydzień 7, Otwarte - zamknięte
+
+    public List<NotificationStrategy> getNotifications() {
+        return notifications;
+    }
 }
