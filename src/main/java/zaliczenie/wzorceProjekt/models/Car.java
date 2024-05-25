@@ -1,12 +1,13 @@
 package zaliczenie.wzorceProjekt.models;
 
+import zaliczenie.wzorceProjekt.funcProgramming.CarTypeInfo;
 import zaliczenie.wzorceProjekt.models.CarType.CarType;
 import zaliczenie.wzorceProjekt.models.Fuel.IFuelType;
 
 import java.util.Date;
 
 //Tydzień 8, Liskov
-public abstract class Car {
+public abstract class Car implements CarTypeInfo {
 
     private int id;
     private String brand;
@@ -112,7 +113,7 @@ public abstract class Car {
     public Boolean isEco() {
         return fuel_type.isEco();
     }
-
+    //Koniec tydzien 2, Bridge
     public float getPrice() {
         return price;
     }
@@ -120,7 +121,7 @@ public abstract class Car {
     public void setPrice(float price) {
         this.price = price;
     }
-    //Koniec tydzien 2, Bridge
+
 
     public void repair(){
 

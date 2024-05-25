@@ -1,6 +1,7 @@
 package zaliczenie.wzorceProjekt;
 
 import org.springframework.context.ApplicationContext;
+import zaliczenie.wzorceProjekt.funcProgramming.*;
 import zaliczenie.wzorceProjekt.interpreter.*;
 import zaliczenie.wzorceProjekt.iterators.CarCollectionImpl;
 import zaliczenie.wzorceProjekt.iterators.Collection;
@@ -28,9 +29,6 @@ import zaliczenie.wzorceProjekt.decorators.InvoiceDecorator;
 import zaliczenie.wzorceProjekt.decorators.ReceiptDecorator;
 import zaliczenie.wzorceProjekt.facade.CarRentFacade;
 import zaliczenie.wzorceProjekt.facade.CarRentFacadeImpl;
-import zaliczenie.wzorceProjekt.funcProgramming.CarFilter;
-import zaliczenie.wzorceProjekt.funcProgramming.RentFeeCalculator;
-import zaliczenie.wzorceProjekt.funcProgramming.RentInfo;
 import zaliczenie.wzorceProjekt.mediators.PaymentMediator;
 import zaliczenie.wzorceProjekt.models.Payment.BasePayment;
 import zaliczenie.wzorceProjekt.models.Payment.Payment;
@@ -247,21 +245,52 @@ public class WzorceProjektApplication {
         
         
         System.out.println("Funkcyjne programowanie");
-        RentFeeCalculator feeCalculator = (durationInDays, baseRate) -> durationInDays * baseRate;
+
+        RentFeeCalculator feeCalculatorSoleProprietorship = (durationInDays, baseRate) -> durationInDays * baseRate;
+        double feeSoleProprietorship = feeCalculatorSoleProprietorship.calculateFee(7, 50);
+        System.out.println("Rental SoleProprietorship fee: " + feeSoleProprietorship);
+
+        RentFeeCalculator feeCalculatorCompany = (durationInDays, baseRate) -> durationInDays * baseRate * 2;
+        double feeCompany = feeCalculatorCompany.calculateFee(7, 50);
+        System.out.println("Rental fee: " + feeCompany);
+
+
         CarFilter ecoCarFilter = car -> car.isEco();
-        RentInfo infoPrinter = rent -> {
-            System.out.println("Rental ID: " + rent.getId());
-            System.out.println("Customer: " + rent.getCustomerName());
-        };
-
-        double fee = feeCalculator.calculateFee(7, 50);
-        System.out.println("Rental fee: " + fee);
-
         boolean isEcoCar = ecoCarFilter.filter(bmw);
         System.out.println("Is eco car? " + isEcoCar);
 
-        infoPrinter.printInfo(rent1);
-        
+        CarFilter noEcoCarFilter = car -> !car.isEco();
+        boolean isNoEcoCar = noEcoCarFilter.filter(bmw);
+        System.out.println("Is no eco car? " + isNoEcoCar);
+
+
+
+        RentInfo infoPrinter = rent -> {
+         System.out.println("Rental ID: " + rent.getId());
+         System.out.println("Customer: " + rent.getCustomerName());
+        };
+
+        RentInfo infoPrinterDetails = rent -> {
+         System.out.println("Rental ID: " + rent.getId());
+         System.out.println("Customer: " + rent.getCustomerName());
+         System.out.println("Start day: " + rent.getStartDate());
+         System.out.println("End day: " + rent.getEndDate());
+        };
+
+       infoPrinter.printInfo(rent1);
+       infoPrinterDetails.printInfo(rent1);
+
+       CarInfo carInfo = CarTypeInfo -> CarTypeInfo.printTypeInfo();
+
+       CarTypeInfo carTypeInfo;
+       carTypeInfo = bmw;
+
+       carInfo.print(bmw);
+
+       carTypeInfo = tesla2;
+       carInfo.print(tesla2);
+
+
         System.out.println("Strumieniowe przetwarzanie kolekcji");
         FuncRentService funcRentService = new FuncRentService(carManager);
 

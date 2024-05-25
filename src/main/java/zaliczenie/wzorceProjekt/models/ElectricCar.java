@@ -46,4 +46,9 @@ public class ElectricCar extends Car implements ICarComponent {
     public void repair(){
 
     }
+
+    @Override
+    public void printTypeInfo() {
+        System.out.println(getCarType().getInfo());
+    }
 }
